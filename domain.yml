@@ -1,0 +1,754 @@
+version: '3.1'
+config:
+  store_entities_as_slots: true
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+# - affirm
+# - cac_phuong_thuc_xet_tuyen
+# - chao
+# - choose_option
+- clear_slots
+# - deny
+- diem_can_de_do_truong
+- doi_nguyen_vong
+- dong_y
+- giay_to_can_de_du_thi
+- goodbye
+- greet
+- intent_diem_chuan_nganh_truong
+# - hoi_co_ban
+# - hoi_co_ban_2
+# - hoi_diem_chuan
+- hoi_khoi_thi_cua_nganh
+- hoi_nganh
+- hoi_nganh_hot
+- hoi_thi_nang_luc
+- hoi_top_truong
+# - hoi_truong
+- hoi_truong_theo_nganh
+- inform_diem_trac_nghiem
+- inform_diem_va_nganh
+# - inform_food
+- inform_nganh
+- inform_truong
+- intent_cac_nganh_va_truong_ma_bot_co
+- intent_chi_tiet_tt_ve_diem_uu_tien
+- intent_diem_khuyen_khich_la_gi
+- intent_diem_uu_tien_la_gi
+- intent_gioi_thieu_ve_truong
+- intent_ho_so_xet_tuyen_dai_hoc_can_j
+- intent_hoc_bong_cua_truong
+- intent_hoi_cac_truong_co_hoc_phi_phu_hop
+- intent_hoi_hoc_phi_cua_truong
+- intent_hoi_ma_truong
+- intent_ke_chi_tiet_di
+- intent_nganh_hot_cua_truong
+- intent_nganh_va_truong
+- intent_quyen_uu_tien
+- intent_thong_tin_dao_tao
+- intent_thong_tin_ts_nganh_cua_truong
+- intent_tinh_diem_cong_uu_tien
+- intent_truong_co_may_co_so
+- intent_xet_hoc_ba_co_duoc_tinh_diem_uu_tien
+- khoi_thi
+- khong_biet_chon_nganh_nao
+- khong_dong_y
+# - khu_vuc_hcm
+# - khu_vuc_hn
+# - mood_great
+# - mood_unhappy
+- nlu_fallback
+# - order_food
+# - order_pizza
+- quyen_uu_tien
+- search_google
+- so_thich
+- test_nghe_nghiep
+# - thanks
+- thi_sinh_tu_do
+- thong_tin_tuyen_sinh_cua_truong
+# - tieng_viet
+- trac_nghiem_nghe_nghiep
+# - tuyen_sinh_truong
+- intent_dk_thi_nang_luc
+- xem_ket_qua_thi
+# - xung_ten
+- intent_cac_nganh_cua_truong
+- intent_phuong_thuc_xet_tuyen
+- intent_giay_to_nhap_hoc
+- intent_quy_che_tuyen_sinh
+- intent_ho_so_xthb_dai_hoc_can_j
+- intent_dieu_kien_tham_gia_tuyen_sinh
+- intent_nhiem_vu_thi_sinh
+- intent_xet_mot_nganh_cho_nhieu_khoi
+- intent_hoi_bot_lam_duoc_gi
+- intent_xet_tuyen_bo_sung
+- intent_hoc_duoc_nganh_nao_cua_truong_nay_voi_so_diem_nay
+- intent_giay_to_giam_hoc_phi
+entities:
+- khu_vuc_hcm
+- khu_vuc_hn
+- entity_above
+- attt
+- bkhn
+- ptit2
+- khtn_hcm
+- cntt
+- bkhcm
+- iot
+- diem
+- ut2
+- kv1
+- co
+- diemTN
+- nganh
+- soThich
+- truong
+- khong
+- food
+- ten
+- google
+- khoi
+- tong_diem_test
+- ptit1
+- khtn_hn
+- spkt
+- nam
+- diem_cong_uu_tien
+- ut1
+- kv2
+- kv2nt
+- kv3
+- vnd
+- trieu
+- dh_cntt
+- khu_vuc
+- dt
+- vt
+- mt
+- khmt
+- ttnt
+- ck
+- httt
+- ktmp
+- mmt
+- qtkd
+entity_synonyms:
+- synonym: này
+  value: entity_above
+- synonym: trên
+  value: entity_above
+- synonym: TREN
+  value: entity_above
+- synonym: nay
+  value: entity_above
+- synonym: kia
+  value: entity_above
+- synonym: đó
+  value: entity_above
+- synonym: do
+  value: entity_above
+- synonym: cntt
+  value: CNTT
+- synonym: Cong nghe thong tin
+  value: CNTT
+- synonym: Công nghệ thông tin
+  value: CNTT
+- synonym: it
+  value: CNTT
+- synonym: IT
+  value: CNTT
+- synonym: attt
+  value: ATTT
+- synonym: an toan thong tin
+  value: ATTT
+- synonym: an toan
+  value: ATTT
+- synonym: an toàn
+  value: ATTT
+- synonym: iot
+  value: IOT
+- synonym: internet of things
+  value: IOT
+- synonym: internet vạn vật
+  value: IOT
+- synonym: internet van vat
+  value: IOT
+
+- synonym: ptit2
+  value: PTIT2
+- synonym: hoc vien cong nghe buu chinh vien thong co so 2
+  value: PTIT2
+- synonym: hoc vien co so
+  value: PTIT2
+- synonym: học viện công nghệ bưu chính viễn thông 2
+  value: PTIT2
+- synonym: học viện công nghệ bưu chính viễn thông cơ sở 2
+  value: PTIT2
+- synonym: học viện cơ sở
+  value: PTIT2
+- synonym: học viện công nghệ bưu chính viễn thông tp.hcm
+  value: PTIT2
+- synonym: học viện công nghệ bưu chính viễn thông thành phố hồ chí minh
+  value: PTIT2
+- synonym: học viện công nghệ bưu chính viễn thông miền nam
+  value: PTIT2
+- synonym: bưu chính viễn thông tp.hcm
+  value: PTIT2
+- synonym: học viện công nghệ bưu chính miền nam
+  value: PTIT2
+- synonym: học viện công nghệ bưu chính miền bắc
+  value: PTIT2
+- synonym: bưu chính viễn thông hồ chí minh
+  value: PTIT2
+- synonym: bưu chính viễn thông miền nam
+  value: PTIT2
+- synonym: bưu chính viễn thông 2
+  value: PTIT1
+- synonym: ptit1
+  value: PTIT1
+- synonym: hoc vien cong nghe buu chinh vien thong co so 1
+  value: PTIT1
+- synonym: học viện công nghệ bưu chính viễn thông 1
+  value: PTIT1
+- synonym: học viện công nghệ bưu chính viễn thông cơ sở 1
+  value: PTIT1
+- synonym: học viện công nghệ bưu chính viễn thông hn
+  value: PTIT1
+- synonym: học viện công nghệ bưu chính viễn thông miền bắc
+  value: PTIT1
+- synonym: bưu chính viễn thông hn
+  value: PTIT1
+- synonym: bưu chính viễn thông miền bắc
+  value: PTIT1
+- synonym: bưu chính viễn thông 1
+  value: PTIT1
+- synonym: bưu chính viễn thông hà nội
+  value: PTIT1
+- synonym: học viện công nghệ bưu chính viễn thông cơ sở hà nội
+  value: PTIT1
+- synonym: bách khoa hà nội
+  value: BKHN
+- synonym: bach khoa ha noi
+  value: BKHN
+- synonym: bách khoa hn
+  value: BKHN
+- synonym: bkhn
+  value: BKHN
+- synonym: bk hn
+  value: BKHN
+- synonym: bách khoa miền bắc
+  value: BKHN
+- synonym: bach khoa mien bac
+  value: BKHN
+- synonym: bách khoa tp hồ chí minh
+  value: BKHCM
+- synonym: bách khoa hồ chí minh
+  value: BKHCM
+- synonym: bach khoa ho chi minh
+  value: BKHCM
+- synonym: bach khoa hcm
+  value: BKHCM
+- synonym: bkhcm
+  value: BKHCM
+- synonym: bk hcm
+  value: BKHCM
+- synonym: bk tphcm
+  value: BKHCM
+- synonym: bách khoa hcm
+  value: BKHCM
+- synonym: bách khoa miền nam
+  value: BKHCM
+- synonym: bach khoa mien nam
+  value: BKHCM
+- synonym: su pham ky thuat
+  value: SPKT
+- synonym: su pham ki thuat
+  value: SPKT
+- synonym: sư phạm kỹ thuật
+  value: SPKT
+- synonym: HCMUTE
+  value: SPKT
+- synonym: su pham ky thuat hcm
+  value: SPKT
+- synonym: khoa hoc tu nhien ha noi
+  value: KHTNHN
+- synonym: khoa học tự nhiên hà nội
+  value: KHTNHN
+- synonym: khoa hoc tu nhien mien bac
+  value: KHTNHN
+- synonym: khoa học tự nhiên miền bắc
+  value: KHTNHN
+- synonym: QHT
+  value: KHTNHN
+
+- synonym: khoa hoc tu nhien ho chi minh
+  value: KHTNHCM
+- synonym: khoa học tự nhiên hồ chí minh
+  value: KHTNHCM
+- synonym: khoa học tự nhiên hcm
+  value: KHTNHN
+- synonym: khoa hoc tu nhien mien nam
+  value: KHTNHCM
+- synonym: khoa học tự nhiên miền nam
+  value: KHTNHCM
+- synonym: QST
+  value: KHTNHCM
+
+- synonym: Đại học Công nghệ thông tin
+  value: DHCNTT
+- synonym: dai hoc cntt
+  value: DHCNTT
+- synonym: dai hoc cong nghe thong tin
+  value: DHCNTT
+- synonym: đại học cntt
+  value: DHCNTT
+- synonym: QSC
+  value: DHCNTT
+
+- synonym: Cơ khí
+  value: CK
+- synonym: Co khi
+  value: CK
+
+- synonym: Điện tử
+  value: DT
+- synonym: ĐIỆN
+  value: DT
+- synonym: ĐIỆN tử
+  value: DT
+- synonym: DIEN DIEN TU
+  value: DT
+- synonym: ĐIỆN ĐIỆN TỬ
+  value: DT
+- synonym: dien tu
+  value: DT
+
+- synonym: Hệ thống thông tin
+  value: HTTT
+- synonym: HE THONG THONG TIN
+  value: HTTT
+- synonym: HE THỐNG TT
+  value: HTTT
+- synonym: ht thông tin
+  value: HTTT
+
+- synonym: Khoa học máy tính
+  value: KHMT
+- synonym: khoa hoc may tinh
+  value: KHMT
+- synonym: Kh máy tính
+  value: KHMT
+- synonym: khoa hoc mt
+  value: KHMT
+
+- synonym: Kỹ thuật phần mềm
+  value: KTPM
+- synonym: Ki thuat phan mem
+  value: KTPM
+- synonym: Kỹ thuật phần mềm
+  value: KTPM
+- synonym: KY THUAT PM
+  value: KTPM
+
+- synonym: Mạng máy tính và truyền thông dữ liệu
+  value: MMT
+- synonym: mang may tinh va truyen thong du lieu
+  value: MMT
+- synonym: mang may tinh
+  value: MMT
+- synonym: Mạng máy tính 
+  value: MMT
+
+- synonym: Môi trường
+  value: MT
+- synonym: moi truong
+  value: MT
+  
+- synonym: quản trị kinh doanh
+  value: QTKD
+- synonym: quan tri kinh doanh
+  value: QTKD
+
+- synonym: Trí tuệ nhân tạo
+  value: TTNT
+- synonym: tri tue nhan tao
+  value: TTNT
+- synonym: AI
+  value: TTNT
+
+- synonym: Viễn thông
+  value: VT
+- synonym: vien thong
+  value: VT
+slots:
+  truong:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: truong
+  nganh:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: nganh
+  tong_diem_test:
+    type: float
+    min_value: 1
+    max_value: 5
+    mappings:
+    - type: custom
+  khu_vuc:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: khu_vuc
+  khoi:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: khoi
+responses:
+  utter_FALLBACK:
+  - text: Xin lỗi, tôi chưa rõ ý của bạn là gì. Dưới đây là một số câu hỏi khác mà bạn có thể sử dụng <><> updating...
+  utter_ho_so_xthb:
+  - text: |
+      Ho so xet tuyen hoc ba can:
+      1. 
+  utter_hinh_thuc_xet_tuyen:
+  - text: |
+      Phương thức xét tuyển của các trường đại học có thể khác nhau, nhưng một số phương thức xét tuyển phổ biến là:
+      1. Xét tuyển thẳng, ưu tiên xét tuyển theo quy chế của Bộ GD-ĐT và quy định của trường.
+      2. Xét tuyển theo kết quả kỳ thi tốt nghiệp THPT hàng năm.
+      3. Xét tuyển dựa trên kết quả học tập bậc THPT (xét học bạ) theo tổ hợp môn.
+      4. Xét tuyển dựa vào kết quả kỳ thi đánh giá năng lực.
+
+  utter_xem_ket_qua_thi:
+  - text: |
+      Cách xem điểm thi THPT Quốc gia thông qua website của Bộ Giáo dục và Đào tạo cụ thể như sau: 
+      Bước 1: Truy cập vào cổng thi THPT của Bộ Giáo dục và Đào tạo: http://thisinh.thithptquocgia.edu.vn/ 
+      Bước 2: Bạn nhập đầy đủ thông tin yêu cầu: căn cước công dân, mã đăng nhập,… để xác nhận. 
+      Bước 3: Đăng nhập và xem kết quả thi. Kết quả thi sẽ hiện ra khi bạn hoàn thành các bước trên. 
+      Bạn có thể xem điểm thi đánh giá năng lực 2023 của Đại học Quốc gia TP.HCM tại: https://thinangluc.vnuhcm.edu.vn/.
+      Bạn có thể xem điểm thi đánh giá năng lực Đại học Quốc gia Hà Nội 2023 tại: http://khaothi.vnu.edu.vn/
+  utter_giay_to_nhap_hoc:
+  - text: |
+      Hồ sơ nhập học đại học thường gồm các loại giấy tờ sau:
+      - Bản chính Giấy báo nhập học.
+      - Sơ yếu lý lịch học sinh có chứng thực.
+      - Giấy chứng nhận tốt nghiệp trung học phổ thông tạm thời hoặc bằng tốt nghiệp trung học phổ thông.
+      - Học bạ trung học phổ thông.
+      - Căn cước công dân/Chứng minh nhân dân.
+      - Bản sao Giấy khai sinh.
+      - Phiếu khám sức khỏe do phòng khám quận, huyện cấp.
+      - Hồ sơ, giấy chứng nhận ưu đãi.
+      - Ảnh thẻ 3x4 (chuẩn bị khoảng 04 - 06 ảnh).
+      - Bản sao Giấy chứng nhận đăng ký Nghĩa vụ quân sự và Giấy xác nhận đăng ký vắng mặt (đối với nam).
+      Nếu thuộc các đối tượng được miễn, giảm học phí, hỗ trợ chi phí học tập, học sinh cần chuẩn bị thêm các giấy phù hợp.
+  utter_giay_to_giam_hoc_phi:
+  - text: |
+      Nếu thuộc các đối tượng được miễn, giảm học phí, hỗ trợ chi phí học tập, học sinh cần chuẩn bị các giấy tờ sau:
+      - Đơn đề nghị miễn, giảm học phí và hỗ trợ chi phí học tập, hỗ trợ tiền đóng học phí.
+      - Bản sao chứng thực hoặc bản sao kèm theo bản chính để đối chiếu hoặc bản sao từ sổ gốc các giấy tờ chứng minh thuộc đối tượng miễn, giảm học phí đối với các đối tượng sau:
+      - Miễn học phí Giấy xác nhận khuyết tật do Ủy ban nhân dân (UBND) xã cấp hoặc Quyết định về việc trợ cấp xã hội của Chủ tịch UBND cấp huyện đối với đối tượng sinh viên khuyết tật.
+      - Giấy chứng nhận được hưởng chế độ miễn học phí theo quy định tại Nghị định số 27/2016/NĐ-CP đối với thân nhân của hạ sĩ quan, binh sĩ tại ngũ.
+      - Giấy khai sinh và giấy xác nhận hộ nghèo hoặc hộ cận nghèo do UBND xã cấp cho sinh viên người dân tộc thiểu số có cha hoặc mẹ hoặc cả cha mẹ hoặc ông bà (trong trường hợp ở với ông bà) thuộc hộ nghèo và hộ cận nghèo; sinh viên người dân tộc rất ít người.
+      - Giấy khai sinh và sổ hộ khẩu thường trú hoặc xác nhận của cơ quan công an về việc đăng ký thường trú (trường hợp sổ hộ khẩu bị thất lạc) đối với sinh viên người dân tộc thiểu số rất ít người.
+  utter_xet_tuyen_bo_sung:
+  - text: |
+      Thông tin về kỳ thi bổ sung:
+      a) Xét tuyển bổ sung có thể được thực hiện một lần hay nhiều lần;
+      b) Căn cứ chỉ tiêu tuyển sinh của trường và số thí sinh trúng tuyển đã xác nhận nhập học tại trường sau xét tuyển đợt 1.
+      c) Các trường thông báo điều kiện xét tuyển bổ sung, điểm nhận hồ sơ xét tuyển bổ sung không được thấp hơn điểm trúng tuyển đợt 1; công bố lịch xét tuyển;
+      d) Thí sinh chưa trúng tuyển hay đã trúng tuyển mà chưa xác nhận nhập học vào bất cứ trường nào có thể thực hiện ĐKXT bổ sung trực tuyến hoặc theo phương thức khác do trường quy định;
+      đ) Kết thúc mỗi đợt xét tuyển, trường công bố trên trang thông tin điện tử của trường và trên phương tiện thông tin đại chúng về điểm trúng tuyển, danh sách thí sinh trúng tuyển;
+      e) Thí sinh xác nhận nhập học trong thời hạn quy định, bằng phương thức trực tuyến hoặc theo quy định của từng trường;
+      Lưu ý: Chương trình học hay học phí đều tương tự đợt xét tuyển thường.
+  utter_xet_mot_nganh_cho_nhieu_khoi:
+  - text: Hoàn toàn được. Điểm trúng tuyển của các tổ hợp môn thi/bài thi trong cùng một ngành là bằng nhau. Bạn chỉ trúng tuyển vào 1 nguyện vọng ưu tiên cao nhất trong danh sách các nguyện vọng đã đăng ký.
+  utter_quy_che_tuyen_sinh:
+  - text: |
+      Quy chế tuyển sinh đại học và cao đẳng tại Việt Nam thường do Bộ Giáo dục và Đào tạo quy định và giám sát. Một số thông tin có trong quy chế tuyển sinh:
+      1. Kỳ Thi Đánh Giá Năng Lực
+      2. Điểm Chuẩn và Xét Tuyển
+      3. Xét Tuyển Thông Qua Hồ Sơ
+      4. Chính sách ưu tiên
+      5. Học Bổng và Hỗ Trợ Tài Chính
+      6. Hướng Dẫn Đăng Ký và Đăng Nhập Hồ Sơ
+  utter_greet:
+  - text: Xin chào! Tôi là chatbot tư vấn tuyển sinh. Bạn muốn tôi giúp gì?
+    buttons:
+    - title: Thông tin tuyển sinh
+      payload: /chao
+    - title: Hồ sơ nhập học
+      payload: /thanks
+    - title: '1'
+      payload: test nghe nghiep
+  utter_cheer_up:
+  - image: https://i.imgur.com/nGF1K8f.jpg
+    text: 'Here is something to cheer you up:'
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_happy:
+  - text: Great, carry on!
+  utter_goodbye:
+  - text: Bye
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+  utter_tieng_viet:
+  - text: Xin chao.
+  utter_thanks:
+  - text: Thanks
+  utter_bot_co_the_thuc_hien:
+  - text: Tôi là chatbot hỗ trợ tư vấn tuyển sinh đại học, tôi có thể tư vấn cho bạn về thông tin tuyển sinh, điểm chuẩn, ngành đào tạo của các trường đại học.
+  utter_khong_dong_y:
+  - text: Vay ban muon biet thong tin nao khac ko
+  utter_hoan_toan_co_the:
+  - text: Hoàn toàn có thể chứ
+  utter_ho_so_xet_tuyen:
+  - text: 'Hồ sơ xét tuyển học bạ bao gồm: Học bạ photo công chứng + phiếu đăng ký xét tuyển theo mẫu của các trường + lệ phí xét tuyển theo quy định của Bộ Giáo dục. Bạn có thể nộp hồ sơ trực tiếp tại Văn phòng tuyển sinh của các trường, hoặc gửi chuyển phát nhanh hồ sơ qua đường bưu điện theo địa chỉ: Văn phòng tuyển sinh các cơ sở đào tạo của các trường.'
+  utter_5_buttons:
+  - text: 5buttons
+    buttons:
+    - title: Không đúng
+      payload: '1'
+    - title: Đúng trong vài trường hợp
+      payload: '2'
+    - title: Đúng một nửa
+      payload: '3'
+    - title: Đúng trong đa số trường hợp
+      payload: '4'
+    - title: Luôn đúng
+      payload: '5'
+  utter_dk_thi_nang_luc:
+  - text: |
+      Bạn có thể đăng ký dự thi kì thi đánh giá năng lực trực tuyến hoặc qua bưu điện. Để đăng ký trực tuyến, bạn cần truy cập vào trang web của kỳ thi và đăng ký tài khoản. Sau đó, bạn cần nhập đầy đủ thông tin cá nhân và cập nhật hồ sơ dự thi. Tiếp theo, bạn có thể chọn ca thi và thanh toán lệ phí thi. Cuối cùng, bạn có thể tra cứu thông tin và in phiếu dự thi. Nếu bạn muốn đăng ký qua bưu điện, bạn cần tải phiếu đăng ký dự thi đánh giá năng lực và điền đầy đủ các thông tin yêu cầu. Sau đó, bạn gửi phiếu đăng ký và các giấy tờ cần thiết đến địa chỉ được công bố trên trang web của kỳ thi.
+  utter_gioi_thieu_ve_diem_uu_tien:
+  - text: |
+      Điểm ưu tiên là mức điểm được Nhà nước ưu ái dành cho các học sinh, đặc biệt là những học sinh thuộc những trường hợp đặc biệt hoặc một số khu vực được quy định. Điểm ưu tiên được cộng thêm vào số điểm thi thực tế mà thí sinh đã đạt được trong kỳ thi của mình. Tuy nhiên, không phải học sinh nào cũng được cộng điểm ưu tiên mà chỉ những trường hợp được thuộc diện quy định của pháp luật. Với điểm ưu tiên, thí sinh sẽ có cơ hội cao hơn trong các kỳ thi như: kỳ thi tốt nghiệp THPT quốc gia, xét tuyển vào các trường Đại học, Cao đẳng trên cả nước.
+  utter_chi_tiet_ve_diem_uu_tien:
+  - text: |
+      1. Điểm ưu tiên là mức điểm thí sinh thuộc diện đặc biệt được cộng thêm vào số điểm thi thực tế. Đây là căn cứ để các đơn vị giáo dục thực hiện việc xét tuyển. Có 2 loại điểm ưu tiên bao gồm: Điểm ưu tiên theo khu vực và điểm ưu tiên theo đối tượng.
+
+      2. Quy định về điểm ưu tiên khi thi xét tuyển Đại học 2023:
+      - Chính sách cộng điểm ưu tiên Đại học 2023 theo khu vực
+
+      Theo Quy chế tuyển sinh Đại học 2022, chính sách cộng điểm ưu tiên được quy định cụ thể như sau:
+      Đối tượng thuộc khu vực 1 (KV1) được cộng 0,75 điểm: Bao gồm các xã đặc biệt khó khăn thuộc vùng sâu vùng xa, vùng dân tộc thiểu số, miền núi, biên giới và hải đảo; các xã an toàn khu vào diện đầu tư của Chương trình 135 theo quy định của Thủ tướng Chính phủ.
+      Khu vực 2 (KV2) được cộng 0,25 điểm: Các huyện và thị xã ngoại thành của thành phố trực thuộc Trung ương hoặc thành phố trực thuộc tỉnh, ngoại trừ các địa phương thuộc KV1.
+      Khu vực 3 (KV3) không được cộng điểm ưu tiên: Bao gồm các quận trong nội thành của thành phố trực thuộc trung ương.
+      Khu vực 2 nông thôn (KV2-NT) được cộng 0,5 điểm: Các địa phương không thuộc KV1, KV2, KV3.
+
+      - Chính sách cộng điểm ưu tiên Đại học 2022 theo đối tượng chính sách
+      Có 2 nhóm đối tượng ưu tiên bao gồm: Ưu tiên 1 (ƯT1) và Ưu tiên 2 (ƯT2).
+
+      Nhóm ƯT1 được cộng 2 điểm, bao gồm:
+      Công dân Việt Nam là người dân tộc thiểu số có nơi thường trú trong thời gian học THPT hoặc trung cấp trên 18 tháng tại KV1.
+      Công nhân trực tiếp sản xuất đã làm việc liên tục 5 năm trở lên, trong đó tối thiểu 2 năm là chiến sĩ thi đua cấp tỉnh được công nhận và được nhận giấy khen.
+      Đối tượng là thương binh, bệnh binh, người có giấy chứng nhận được hưởng chính sách như thương binh.
+      Những người là sĩ quan, hạ sĩ quan, chiến sĩ nghĩa vụ phục vụ trong Công an nhân dân tại ngũ có thời gian phục vụ từ 12 tháng trở lên đối với KV1, 18 tháng trở lên tại các khu vực còn lại hoặc đã hoàn thành nghĩa vụ phục vụ theo quy định.
+      Đối tượng là con của thương binh liệt sĩ, con của người hoạt động kháng chiến bị nhiễm chất độc màu da cam và bị suy giảm khả năng lao động từ 81% trở lên. Những người là con của người hoạt động kháng chiến bị dị tật, dị dạng do chất độc hóa học và đang được nhận trợ cấp hàng tháng.
+      Đối tượng là của con Anh hùng Lực lượng vũ trang nhân dân hoặc Anh hùng lao động trong thời kỳ kháng chiến.
+
+      Nhóm ƯT2 được cộng 1 điểm, bao gồm:
+      Đối tượng là thanh niên xung phong được cử đi học.
+      Những người là sĩ quan, hạ sĩ quan, chiến sĩ nghĩa vụ phục vụ trong Công an nhân dân tại ngũ có thời gian phục vụ từ 12 tháng trở lên đối với KV1, 18 tháng trở lên tại các khu vực còn lại.
+      Chỉ huy trưởng, chỉ huy phó ban chỉ huy quân sự xã, phường, thị trấn; những người là trưởng thôn, trung đội trưởng dân quân tự vệ. Dân quân tự vệ đã hoàn thành tham gia thực hiện nghĩa vụ Dân quân tự vệ từ 12 tháng trở lên, dự thi vào ngành Quân sự cơ sở. Lưu ý thời hạn tối đa được hưởng chế độ cộng điểm ưu tiên là 18 tháng kể từ ngày ký quyết định xuất ngũ đến ngày đăng ký xét tuyển.
+      Công dân Việt Nam là người dân tộc thiểu số có nơi thường trú tại nơi ngoài khu vực của đối tượng thuộc nhóm ƯT1.
+      Người khuyết tật nặng được cơ quan có thẩm quyền xác nhận.
+      Giáo viên đã giảng dạy tối thiểu 3 năm tại các cơ sở giáo dục đăng ký dự tuyển vào các ngành đào tạo giáo viên.
+      Những người là y tá, hộ lý, dược tá, điều dưỡng viên,... có bằng trung cấp Dược tá đã công tác tối thiểu 3 năm đăng ký dự tuyển vào các ngành có liên quan đến chuyên môn.
+
+      3. Cách tính điểm ưu tiên thi Đại học 2023
+
+      Năm 2023 là năm đầu tiên áp dụng cách tính điểm ưu tiên mới trong kỳ thi THPT quốc gia, xét tuyển Đại học, Cao đẳng, cụ thể:
+      Điểm ưu tiên thí sinh được hưởng = [(30 - tổng điểm đạt được của thí sinh)/7,5] x Tổng điểm ưu tiên được xác định thông thường.
+      Đối với thí sinh có điểm thực tế từ 22,5 trở lên (tính theo thang 10 điểm và tổng điểm 3 môn tối đa là 30) sẽ giảm dần đến 0 khi thí sinh đạt số điểm thi thực tế tổng 3 môn là 30 điểm.
+      Áp dụng công thức ở trên:
+      Thí sinh thuộc đối tượng khu vực 1 thi thực tế đạt 22,5 trở xuống thì được cộng 0,75 điểm ưu tiên khu vực. Trường hợp đạt 27 điểm thực tế thì điểm ưu tiên chỉ còn là 0,3; và 29 điểm chỉ còn 0,1 điểm ưu tiên khu vực.'''
+  utter_diem_uu_tien_co_tinh_vao_xet_hoc_ba:
+  - text: Xét học bạ được là hình thức xét tuyển đại học phổ biến hiện nay. Trong phương thức xét tuyển Đại học 2022 theo quy định của Bộ giáo dục và đào tạo, xét tuyển học bạ vẫn sẽ được cộng điểm ưu tiên.
+  utter_doi_nguyen_vong:
+  - text: |
+      Cách thay đổi nguyện vọng Đại học sau khi biết điểm năm 2023 được tiến hành như sau:
+
+      Bước 1: Truy cập vào địa chỉ http://thisinh.thithptquocgia.edu.vn và đăng nhập bằng tài khoản được Bộ GD&ĐT cấp trước đó khi đăng ký dư thi THPT.
+
+      Bước 2: Bấm vào thanh Menu và chọn mục Thay đổi nguyện vọng đăng ký xét tuyển sinh.
+
+      Bước 3: Tại đây, cửa sổ hiển thị thông tin thí sinh đã đăng ký trước đó. Sau đó, bấm vào mục Chỉnh sửa nguyện vọng để thay đổi nguyện vọng mong muốn.
+
+      Bước 4: Thí sinh tiến hành thay đổi nguyện vọng và lần lượt lựa chọn: Trường, ngành, tổ hợp môn
+
+      Bước 5: Sau khi nhập thông tin thay đổi nguyện vọng, thí sinh chọn vào mục lưu thông tin để cập nhật nguyện vọng đã thay đổi.
+
+      Bước 6: Hệ thống sẽ gửi mã OTP về số điện thoại, hãy nhập chính xác mã được gửi. Cuối cùng, thí sinh nhấn vào mục Xác nhận đăng ký.
+
+      Bước 7: Hệ thống sẽ bắt buộc thí sinh xác nhận thêm một lần nữa. Nhấn vào OK để xác nhận, muốn hủy bỏ bạn nhấn vào Cancel.
+
+      Bạn có thể tìm hiểu thêm tại đây: https://thuvienphapluat.vn/hoi-dap-phap-luat/839CE95-hd-cach-thay-doi-nguyen-vong-dai-hoc-sau-khi-biet-diem-nam-2023-thoi-gian-thay-doi-nguyen-vong-dai-hoc.html
+
+      Bạn có muốn biết thêm thông tin khác về việc đổi nguyện vọng đại học không?
+  utter_trac_nghiem_nghe_nghiep:
+  - text: Tôi có một bài trắc nghiệm có thể sẽ giúp bạn tìm ra được nghề nghiệp phù hợp với bản thân, bạn có muốn thử không?
+  utter_canh_bao:
+  - text: |
+      Bài trắc nghiệm này chỉ mang tính chất tham khảo, bạn không nên chỉ dựa vào kết quả của bài này để đưa ra quyết định nghề nghiệp của bản thân, bạn nên tham khảo thêm nhiều nguồn khác.
+      Ban co muon thuc hien khong?
+  utter_de_nghi_neu_ro_nganh:
+  - text: |
+      Bạn có thể nêu rõ ngành để tôi có thể đưa ra gợi ý chính xác hơn. Các ngành: đưa ra 2 3 lựa chọn vd cntt, attt
+  utter_luat_test:
+  - text: |
+      Bài trắc nghiệm gồm 10 câu hỏi, sau mỗi câu hỏi bạn sẽ đưa ra thang điểm từ 1-5 dựa trên cảm giác của bạn về câu hỏi đó.
+        1: Không đúng
+        2: Đúng trong vài trường hợp
+        3: Đúng một nửa
+        4: Đúng hầu hết trong các trường hợp
+        5: Hoàn toàn đúng
+        Sau đây là các câu hỏi:
+  utter_cau1:
+  - text: Bạn có thích sử dụng máy tính không?
+  utter_cau2:
+  - text: Bạn có kỹ năng làm việc nhóm tốt không?
+  utter_cau3:
+  - text: Bạn có sở thích trong lĩnh vực khoa học và công nghệ không?
+  utter_cau4:
+  - text: Bạn có kỹ năng giải quyết vấn đề tốt không?
+  utter_cau5:
+  - text: Bạn có hứng thú với nghề lập trình không?
+  utter_cau6:
+  - text: Bạn có thích học hỏi kiến thức mới không?
+  utter_cau7:
+  - text: Bạn có sở thích sáng tạo và thiết kế không?
+  utter_cau8:
+  - text: Bạn có kỹ năng giao tiếp tốt không?
+  utter_cau9:
+  - text: Bạn có đam mê tìm hiểu về công nghệ mới không?
+  utter_cau10:
+  - text: Bạn có kiên nhẫn và kiên trì trong công việc không?
+  utter_cau11:
+  - text: cau 11
+  utter_cac_cach_xet_tuyen:
+  - text: |
+      day la cac cach xet tuyen:
+      - nop ho so
+      - ...
+  utter_quyen_uu_tien:
+  - text: |
+      DAY LA CAC QUYEN UU TIEN:
+      - HOAN CANH KHO KHAN
+      - VUNG SAU, XA
+      - CON thuoNG BINH LIET SI
+      - ...
+  utter_goi_ten:
+  - text: xIN CHAO {ten}. Toi co the giup gi cho ban.
+  utter_diem_va_nganh:
+  - text: 'Voi so diem nay ban co the hoc o TRUONG: '
+  utter_nganh_hot:
+  - text: 'Dưới đây là danh sách các ngành nghề hot tại Việt Nam hiện nay mà bạn có thể tham khảo:'
+    buttons:
+    - title: Công nghệ thông tin
+      payload: Giới thiệu về ngành Công nghệ thông tin
+    - title: An toàn thông tin
+      payload: Giới thiệu về ngành An toàn thông tin
+    - title: Quản trị kinh doanh
+      payload: Giới thiệu về ngành Quản trị kinh doanh
+  utter_de_xuat_nganh_nen_hoc:
+  - text: Bạn có thể cho tôi biết sở thích của bạn để tôi có thể đưa ra một vài gợi ý.
+  utter_muon_biet_them_ve_cnnt_ko:
+  - text: 'Bạn có muốn biết thông tin tuyển sinh của ngành nào không? VD: Công nghệ thông tin'
+  utter_thi_sinh_tu_do:
+  - text: thi sinh tu do
+  utter_con_cau_hoi_nao_khac_ko:
+  - text: ban con cau hoi nao khac ko?
+  utter_giay_to_can_de_du_thi:
+  - text: |
+      Các giấy tờ cần chuẩn bị khi tham gia kỳ thi THPT quốc gia bao gồm:
+      - Phiếu đăng ký dự thi.
+      - Bằng tốt nghiệp THPT (bản sao có công chứng).
+      - Giấy khai sinh.
+      - Giấy xác nhận kết quả học tập của lớp 11 và 12.
+      - Ảnh 3x4 (2 bản).
+      - Chứng minh nhân dân/ Căn cước công dân.
+      - Các giấy chứng nhận hợp lệ để được hưởng chế độ ưu tiên, khuyến khích (nếu có) 
+  utter_dieu_kien_tham_gia_tuyen_sinh:
+  - text: |
+      đIỀU KIỆN THAM GIA TUYỂN SINH
+actions:
+- action_ts_nganh_cua_truong
+- action_xac_nhan_truong
+- utter_muon_biet_them_ve_cnnt_ko
+- action_truong_phu_hop
+- action_diem_can_de_do_truong
+- action_diem_va_nganh
+- action_cac_hoc_bong_cua_truong
+- action_clear_slots
+- action_hoc_phi_cua_truong
+- action_cac_co_so_cua_truong
+- action_tinh_diem_uu_tien
+- action_confirm_nganh
+- action_tuyen_sinh_truong
+- utter_nganh_hot
+- utter_diem_va_nganh
+- utter_con_cau_hoi_nao_khac_ko
+- utter_doi_nguyen_vong
+- action_chi_tiet_doi_nguyen_vong
+- utter_hoan_toan_co_the
+- utter_cau1
+- utter_cau2
+- action_tinh_diem_test
+- utter_canh_bao
+- utter_cau4
+- utter_cau10
+- utter_cau3
+- utter_luat_test
+- utter_cau7
+- utter_cau5
+- action_ket_qua_test
+- utter_cau6
+- utter_cau8
+- utter_cau9
+- utter_5_buttons
+- utter_de_xuat_nganh_nen_hoc
+- utter_tieng_viet
+- action_thi_nang_luc
+- action_de_xuat_nganh
+- action_nganh
+- action_order_food
+- action_confirm_order
+- action_search_google_cse
+- action_hoi_nganh
+- action_thi_sinh_tu_do
+- utter_cac_cach_xet_tuyen
+- utter_quyen_uu_tien
+- utter_greet
+- action_handle_option
+- action_provide_options
+- action_other_info
+- action_khoi_thi_cua_nganh
+- action_tt_khoi_thi
+- utter_diem_uu_tien_co_tinh_vao_xet_hoc_ba
+- utter_chi_tiet_ve_diem_uu_tien
+- utter_gioi_thieu_ve_diem_uu_tien
+- action_nganh_va_truong_ma_bot_co
+- action_thong_tin_dao_tao
+- action_cac_nganh_noi_bat
+- action_hoc_phi_phu_hop
+- utter_ho_so_xet_tuyen
+- utter_FALLBACK
+- action_cac_nganh_cua_truong
+- action_diem_chuan_nganh_truong
+- action_ma_truong
+- action_custom_fallback
+- action_custom_greet
+- action_phuong_thuc_xet_tuyen
+- utter_xet_mot_nganh_cho_nhieu_khoi
+- utter_xet_tuyen_bo_sung
+- utter_ho_so_xthb
+- utter_hinh_thuc_xet_tuyen
+- utter_giay_to_can_de_du_thi
+- utter_xem_ket_qua_thi
+- action_hoc_duoc_nganh_nao_cua_truong_nay_voi_so_diem_nay

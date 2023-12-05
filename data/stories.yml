@@ -1,0 +1,820 @@
+version: "3.1"
+
+stories:
+
+# - story: fall back
+#   steps:
+#   - intent: nlu_fallback
+#   - action: action_custom_fallback
+
+# - story: happy path
+#   steps:
+#   - intent: greet
+#   - action: action_custom_greet
+#   - intent: mood_great
+#   - action: utter_happy
+
+# - story: sad path 1
+#   steps:
+#   - intent: greet
+#   - action: action_custom_greet
+#   - intent: mood_unhappy
+#   - action: utter_cheer_up
+#   - action: utter_did_that_help
+#   - intent: affirm
+#   - action: utter_happy
+
+# - story: sad path 2
+#   steps:
+#   - intent: greet
+#   - action: action_custom_greet
+#   - intent: mood_unhappy
+#   - action: utter_cheer_up
+#   - action: utter_did_that_help
+#   - intent: deny
+#   - action: utter_goodbye
+
+# - story: Express thanks
+#   steps:
+#   - intent: thanks
+#   - action: utter_thanks
+
+# - story: Order my pizza
+#   steps:
+#   - intent: order_food
+#   - action: action_order_food
+#   - intent: inform_food
+#   - action: action_confirm_order
+
+
+
+
+
+##
+
+- story: hỏi cÓ những trường hợp nào thì được cộng điểm thpt quốc gia
+  steps:
+  - intent: intent_quyen_uu_tien
+  - action: utter_gioi_thieu_ve_diem_uu_tien
+  - intent: dong_y
+  - action: utter_chi_tiet_ve_diem_uu_tien
+  - intent: intent_tinh_diem_cong_uu_tien
+  - action: action_tinh_diem_uu_tien
+
+- story: giay to nhap hoc
+  steps:
+  - intent: intent_giay_to_nhap_hoc
+  - action: utter_giay_to_nhap_hoc
+  - intent: intent_giay_to_giam_hoc_phi
+  - action: utter_giay_to_giam_hoc_phi
+
+##
+
+- story: hoi truong
+  steps:
+  - intent: hoi_truong_theo_nganh
+  - action: action_truong_phu_hop
+
+- story: Nhập ngành trước sau đó nhập trường thì nó hiện ra tt tuyển sinh của trường
+  steps:
+  - intent: intent_thong_tin_ts_nganh_cua_truong
+  - action: action_ts_nganh_cua_truong
+  - intent: inform_truong
+  - action: action_ts_nganh_cua_truong
+
+- story: hỏi học phí nhưng ko cho tên trường vào
+  steps:
+  - intent: intent_hoi_hoc_phi_cua_truong
+  - action: action_hoc_phi_cua_truong
+  - intent: inform_truong
+  - action: action_hoc_phi_cua_truong
+
+- story: hỏi học bổng nhưng ko cho tên trường vào
+  steps:
+  - intent: intent_hoc_bong_cua_truong
+  - action: action_cac_hoc_bong_cua_truong
+  - intent: inform_truong
+  - action: action_cac_hoc_bong_cua_truong
+
+- story: hỏi cơ sở trường nhưng ko cho tên trường vào
+  steps:
+  - intent: intent_truong_co_may_co_so
+  - action: action_cac_co_so_cua_truong
+  - intent: inform_truong
+  - action: action_cac_co_so_cua_truong
+
+- story: hoi quyen uu tien
+  steps:
+  - intent: quyen_uu_tien
+  - action: utter_quyen_uu_tien
+
+# - story: hoi cac cach xet tuyen
+#   steps:
+#   - intent: cac_phuong_thuc_xet_tuyen
+#   - action: utter_cac_cach_xet_tuyen
+  
+- story: hoi ky thi nang luc
+  steps:
+  - intent: hoi_thi_nang_luc
+  - action: action_thi_nang_luc
+  - intent: dong_y
+  - action: action_thi_nang_luc
+
+
+
+- story: nguoi dung nhap diem va nganh,tra loi truong co the hoc
+  steps:
+  - intent: inform_diem_va_nganh
+  - action: action_diem_va_nganh
+
+# - story: Hỏi khối thi và sở thích
+#   steps:
+#   - intent: khong_biet_chon_nganh_nao
+#   - action: utter_de_xuat_nganh_nen_hoc
+#   - intent: so_thich
+#   - action: action_de_xuat_nganh
+#   - intent: khoi_thi
+#   - action: action_hoi_nganh  
+
+
+- story: hỏi cần bao nhiêu điểm để đậu vào trường
+  steps:
+  - intent: intent_thong_tin_ts_nganh_cua_truong
+  - action: action_ts_nganh_cua_truong
+  - intent: inform_nganh
+  - action: action_ts_nganh_cua_truong
+
+
+  
+- story: hoi thay doi nguyen vong
+  steps:
+  - intent: doi_nguyen_vong
+  - action: utter_doi_nguyen_vong
+  - intent: dong_y
+  - action: action_chi_tiet_doi_nguyen_vong
+
+
+- story: hỏi trường rồi hỏi các ngành nổi bật
+  steps:
+  - intent: inform_truong
+  - action: action_xac_nhan_truong
+  - intent: intent_nganh_hot_cua_truong
+  - action: action_cac_nganh_noi_bat
+  - intent: inform_nganh
+  - action: action_ts_nganh_cua_truong
+
+- story: hỏi trường rồi hỏi THÔNG TIN ĐÀO TẠO
+  steps:
+  - intent: inform_truong
+  - action: action_xac_nhan_truong
+  - intent: intent_thong_tin_dao_tao
+  - action: action_thong_tin_dao_tao
+
+- story: trac nghiem nghe nghiep
+  steps:
+  - intent: trac_nghiem_nghe_nghiep
+  - action: utter_canh_bao
+  - intent: dong_y
+  - action: utter_cau1
+  - action: utter_5_buttons
+  - intent: inform_diem_trac_nghiem
+  - action: action_tinh_diem_test
+  - action: utter_cau2
+  - action: utter_5_buttons
+  - intent: inform_diem_trac_nghiem
+  - action: action_tinh_diem_test
+  - action: utter_cau3
+  - action: utter_5_buttons
+  - intent: inform_diem_trac_nghiem
+  - action: action_tinh_diem_test
+  - action: utter_cau4
+  - action: utter_5_buttons
+  - intent: inform_diem_trac_nghiem
+  - action: action_tinh_diem_test
+  - action: utter_cau5
+  - action: utter_5_buttons
+  - intent: inform_diem_trac_nghiem
+  - action: action_tinh_diem_test
+  - action: utter_cau6
+  - action: utter_5_buttons
+  - intent: inform_diem_trac_nghiem
+  - action: action_tinh_diem_test
+  - action: utter_cau7
+  - action: utter_5_buttons
+  - intent: inform_diem_trac_nghiem
+  - action: action_tinh_diem_test
+  - action: utter_cau8
+  - action: utter_5_buttons
+  - intent: inform_diem_trac_nghiem
+  - action: action_tinh_diem_test
+  - action: utter_cau9
+  - action: utter_5_buttons
+  - intent: inform_diem_trac_nghiem
+  - action: action_tinh_diem_test
+  - action: utter_cau10
+  - action: utter_5_buttons
+  - intent: inform_diem_trac_nghiem
+  - action: action_tinh_diem_test
+  - action: action_ket_qua_test
+
+
+
+
+
+- story: khong trac nghiem nghe nghiep
+  steps:
+  - intent: trac_nghiem_nghe_nghiep
+  - action: utter_canh_bao
+  - intent: khong_dong_y
+  - action: utter_khong_dong_y
+
+- story: tra google
+  steps:
+  - intent: search_google
+  - action: action_search_google_cse
+
+- story: thi_nang_luc
+  steps:
+  - intent: hoi_thi_nang_luc
+    entities:
+    - khu_vuc_hn: hn
+  - action: action_thi_nang_luc
+  - slot_was_set:
+    - khu_vuc: hn
+  - intent: dong_y
+    entities:
+    - co: Tiếp tục
+  - action: action_thi_nang_luc
+
+
+# - story: interactive_story_112
+#   steps:
+#   - intent: diem_can_de_do_truong
+#     entities:
+#     - truong: PTIT2
+#   - slot_was_set:
+#     - truong: PTIT2
+#   - action: action_diem_can_de_do_truong
+#   - slot_was_set:
+#     - truong: PTIT2
+
+
+# - story: interactive_story_1
+#   steps:
+#   - intent: doi_nguyen_vong
+#   - action: utter_hoan_toan_co_the
+#   - action: utter_doi_nguyen_vong
+#   - intent: dong_y
+#     entities:
+#     - co: Co
+#   - intent: diem_can_de_do_truong
+#     entities:
+#     - truong: PTIT
+#   - slot_was_set:
+#     - truong: PTIT
+#   - action: action_diem_can_de_do_truong
+#   - slot_was_set:
+#     - truong: PTIT
+#   - action: utter_muon_biet_them_ve_cnnt_ko
+#   - intent: inform_nganh
+#     entities:
+#     - nganh: cong nghe thong tin
+#   - action: action_default_fallback
+#   - intent: inform_nganh
+#     entities:
+#     - nganh: cong nghe thong tin
+#   - action: action_ts_nganh_cua_truong
+#   - intent: mood_great
+#   - intent: diem_can_de_do_truong
+
+# - story: interactive_story_21
+#   steps:
+#   - intent: doi_nguyen_vong
+#   - action: utter_doi_nguyen_vong
+#   - intent: khong_dong_y
+#     entities:
+#     - khong: ko
+#   - intent: inform_diem_va_nganh
+#     entities:
+#     - nganh: cong nghe thong tin
+#     - diem: '27'
+#   - action: action_diem_va_nganh
+
+
+- story: interactive_story_test_nghe_nghiep
+  steps:
+  - intent: test_nghe_nghiep
+  - action: utter_canh_bao
+  - intent: dong_y
+    entities:
+    - co: Co
+  - action: utter_luat_test
+  - action: utter_cau1
+  - action: utter_5_buttons
+  - intent: inform_diem_trac_nghiem
+    entities:
+    - diemTN: '1'
+  - action: action_tinh_diem_test
+  - action: utter_cau2
+  - action: utter_5_buttons
+  - intent: inform_diem_trac_nghiem
+    entities:
+    - diemTN: '1'
+  - action: action_tinh_diem_test
+  - action: utter_cau3
+  - action: utter_5_buttons
+  - intent: inform_diem_trac_nghiem
+    entities:
+    - diemTN: '1'
+  - action: action_tinh_diem_test
+  - action: utter_cau4
+  - action: utter_5_buttons
+  - intent: inform_diem_trac_nghiem
+    entities:
+    - diemTN: '2'
+  - action: action_tinh_diem_test
+  - action: utter_cau5
+  - action: utter_5_buttons
+  - intent: inform_diem_trac_nghiem
+    entities:
+    - diemTN: '3'
+  - action: action_tinh_diem_test
+  - action: utter_cau6
+  - action: utter_5_buttons
+  - intent: inform_diem_trac_nghiem
+    entities:
+    - diemTN: '5'
+  - action: action_tinh_diem_test
+  - action: utter_cau7
+  - action: utter_5_buttons
+  - intent: inform_diem_trac_nghiem
+    entities:
+    - diemTN: '3'
+  - action: action_tinh_diem_test
+  - action: utter_cau8
+  - action: utter_5_buttons
+  - intent: inform_diem_trac_nghiem
+    entities:
+    - diemTN: '2'
+  - action: action_tinh_diem_test
+  - slot_was_set:
+    - tong_diem_test: 2
+  - action: utter_cau9
+  - action: utter_5_buttons
+  - intent: inform_diem_trac_nghiem
+    entities:
+    - diemTN: '5'
+  - action: action_tinh_diem_test
+  - slot_was_set:
+    - tong_diem_test: 7
+  - action: utter_cau10
+  - action: utter_5_buttons
+  - intent: inform_diem_trac_nghiem
+    entities:
+    - diemTN: '4'
+  - action: action_tinh_diem_test
+  - slot_was_set:
+    - tong_diem_test: 11
+  - action: action_ket_qua_test
+
+- story: interactive_story_111
+  steps:
+  - intent: test_nghe_nghiep
+  - action: utter_canh_bao
+  - intent: dong_y
+    entities:
+    - co: Co
+  - action: utter_luat_test
+  - action: utter_cau1
+  - action: utter_5_buttons
+  - intent: inform_diem_trac_nghiem
+    entities:
+    - diemTN: '5'
+  - action: action_tinh_diem_test
+  - slot_was_set:
+    - tong_diem_test: 5
+  - action: utter_cau2
+  - action: utter_5_buttons
+  - intent: inform_diem_trac_nghiem
+    entities:
+    - diemTN: '2'
+  - action: action_tinh_diem_test
+  - slot_was_set:
+    - tong_diem_test: 7
+  - action: utter_cau3
+  - action: utter_5_buttons
+  - intent: inform_diem_trac_nghiem
+    entities:
+    - diemTN: '2'
+  - action: action_tinh_diem_test
+  - slot_was_set:
+    - tong_diem_test: 9
+  - action: utter_cau4
+  - action: utter_5_buttons
+  - intent: inform_diem_trac_nghiem
+    entities:
+    - diemTN: '4'
+  - action: action_tinh_diem_test
+  - slot_was_set:
+    - tong_diem_test: 13
+  - action: utter_cau5
+  - action: utter_5_buttons
+  - intent: inform_diem_trac_nghiem
+    entities:
+    - diemTN: '5'
+  - action: action_tinh_diem_test
+  - slot_was_set:
+    - tong_diem_test: 18
+  - action: utter_cau6
+  - action: utter_5_buttons
+  - intent: inform_diem_trac_nghiem
+    entities:
+    - diemTN: '1'
+  - action: action_tinh_diem_test
+  - slot_was_set:
+    - tong_diem_test: 19
+  - action: utter_cau7
+  - action: utter_5_buttons
+  - intent: inform_diem_trac_nghiem
+    entities:
+    - diemTN: '3'
+  - action: action_tinh_diem_test
+  - slot_was_set:
+    - tong_diem_test: 22
+  - action: utter_cau8
+  - action: utter_5_buttons
+  - intent: inform_diem_trac_nghiem
+    entities:
+    - diemTN: '4'
+  - action: action_tinh_diem_test
+  - slot_was_set:
+    - tong_diem_test: 26
+  - action: utter_cau9
+  - action: utter_5_buttons
+  - intent: inform_diem_trac_nghiem
+    entities:
+    - diemTN: '1'
+  - action: action_tinh_diem_test
+  - slot_was_set:
+    - tong_diem_test: 27
+  - action: utter_cau10
+  - action: utter_5_buttons
+  - intent: inform_diem_trac_nghiem
+    entities:
+    - diemTN: '2'
+  - action: action_tinh_diem_test
+  - slot_was_set:
+    - tong_diem_test: 29
+  - action: action_ket_qua_test
+
+- story: doi nguyen vong 109
+  steps:
+  - intent: doi_nguyen_vong
+  - action: utter_doi_nguyen_vong
+  - intent: dong_y
+    entities:
+    - co: Co
+  - action: action_chi_tiet_doi_nguyen_vong
+
+
+
+# - story: interactive_story_12
+#   steps:
+#   - intent: inform_truong
+#     entities:
+#     - bkhcm: bach khoa hcm
+#   - action: action_xac_nhan_truong
+#   - intent: inform_truong
+#     entities:
+#     - ptit2: PTIT2
+#   - action: action_xac_nhan_truong
+#   - intent: inform_truong
+#     entities:
+#     - ptit2: PTIT2
+#   - action: action_xac_nhan_truong
+#   - intent: inform_nganh
+#     entities:
+#     - cntt: CNTT
+#   - action: action_ts_nganh_cua_truong
+#   - intent: diem_can_de_do_truong
+#     entities:
+#     - bkhn: bach khoa ha noi
+#   - action: action_diem_can_de_do_truong
+
+
+# - story: interactive_story_19
+#   steps:
+#   - slot_was_set:
+#     - truong: bkhn
+#   - intent: hoi_nganh_hot
+#   - action: utter_nganh_hot
+#   - intent: inform_truong
+#     entities:
+#     - bkhcm: bach khoa hcm
+#   - action: action_xac_nhan_truong
+#   - slot_was_set:
+#     - truong: bkhcm
+#   - intent: diem_can_de_do_truong
+#   - action: action_diem_can_de_do_truong
+#   - intent: inform_nganh
+#     entities:
+#     - cntt: cong nghe tt
+#   - action: action_ts_nganh_cua_truong
+
+# - story: interactive_story_108
+#   steps:
+#   - intent: inform_diem_va_nganh
+#     entities:
+#     - diem: '27'
+#   - action: action_diem_va_nganh
+#   - slot_was_set:
+#     - nganh: cntt
+#   - intent: diem_can_de_do_truong
+#     entities:
+#     - ptit2: ptit hcm
+#   - action: action_diem_can_de_do_truong
+#   - slot_was_set:
+#     - truong: ptit2
+#   - intent: inform_diem_va_nganh
+#     entities:
+#     - diem: '25'
+#   - action: action_diem_va_nganh
+
+# - story: interactive_story_107
+#   steps:
+#   - intent: intent_thong_tin_ts_nganh_cua_truong
+#     entities:
+#     - cntt: CNTT
+#     - ptit2: PTIT2
+#   - action: action_ts_nganh_cua_truong
+#   - slot_was_set:
+#     - nganh: cntt
+#   - intent: inform_truong
+#     entities:
+#     - ptit2: PTIT2
+#   - action: action_xac_nhan_truong
+#   - slot_was_set:
+#     - truong: ptit2
+#   - intent: intent_thong_tin_ts_nganh_cua_truong
+#   - action: action_ts_nganh_cua_truong
+#   - slot_was_set:
+#     - nganh: cntt
+
+# - story: interactive_story_106
+#   steps:
+#   - intent: intent_tinh_diem_cong_uu_tien
+#     entities:
+#     - diem: '28'
+#     - kv1: khu vuc 1
+#   - action: action_tinh_diem_uu_tien
+#   - intent: intent_tinh_diem_cong_uu_tien
+#     entities:
+#     - diem: '27'
+#     - ut2: uu tien 2
+#   - action: action_tinh_diem_uu_tien
+
+# - story: interactive_story_105
+#   steps:
+#   - intent: intent_hoc_bong_cua_truong
+#   - action: action_cac_hoc_bong_cua_truong
+#   - intent: inform_truong
+#     entities:
+#     - ptit2: học viện cơ sở
+#   - action: action_cac_hoc_bong_cua_truong
+#   - intent: intent_truong_co_may_co_so
+#   - action: action_cac_co_so_cua_truong
+#   - intent: inform_truong
+#     entities:
+#     - bkhn: BÁCH KHOA HÀ NỘI
+#   - action: action_cac_co_so_cua_truong
+#   - intent: intent_hoi_hoc_phi_cua_truong
+#   - action: action_hoc_phi_cua_truong
+#   - intent: inform_truong
+#     entities:
+#     - bkhn: BÁCH KHOA HÀ NỘI
+#   - action: action_hoc_phi_cua_truong
+
+# - story: interactive_story_15
+#   steps:
+#   - intent: inform_truong
+#     entities:
+#     - ptit2: học viện cơ sở
+#   - action: action_xac_nhan_truong
+#   - slot_was_set:
+#     - truong: ptit2
+#   - intent: intent_hoc_bong_cua_truong
+#     entities:
+#     - ptit2: PTIT2
+#   - action: action_cac_hoc_bong_cua_truong
+#   - intent: intent_hoi_hoc_phi_cua_truong
+#     entities:
+#     - ptit2: học viện cơ sở
+#   - action: action_hoc_phi_cua_truong
+
+# - story: interactive_story_14
+#   steps:
+#   - intent: intent_thong_tin_ts_nganh_cua_truong
+#     entities:
+#     - cntt: CNTT
+#     - ptit2: PTIT2
+#   - action: action_ts_nganh_cua_truong
+#   - slot_was_set:
+#     - nganh: cntt
+#   - slot_was_set:
+#     - truong: ptit2
+#   - intent: clear_slots
+#   - action: action_clear_slots
+#   - intent: intent_hoc_bong_cua_truong
+#   - action: action_cac_hoc_bong_cua_truong
+#   - intent: clear_slots
+#   - action: action_clear_slots
+#   - slot_was_set:
+#     - truong: null
+#   - slot_was_set:
+#     - nganh: null
+#   - slot_was_set:
+#     - tong_diem_test: null
+#   - slot_was_set:
+#     - session_started_metadata: null
+#   - intent: intent_hoi_hoc_phi_cua_truong
+#   - action: action_hoc_phi_cua_truong
+#   - intent: inform_truong
+#     entities:
+#     - bkhn: Bách Khoa Hà
+#     - bkhn: Nội
+#   - action: action_hoc_phi_cua_truong
+#   - intent: inform_truong
+#     entities:
+#     - bkhn: Bách Khoa Hà
+#     - bkhn: Nội
+#   - action: action_xac_nhan_truong
+#   - slot_was_set:
+#     - truong: bkhn
+
+# - story: interactive_story_13
+#   steps:
+#   - intent: inform_diem_va_nganh
+#     entities:
+#     - diem: '24'
+#     - cntt: cong nghe thong tin
+#   - action: action_diem_va_nganh
+#   - slot_was_set:
+#     - nganh: cntt
+#   - intent: inform_diem_va_nganh
+#     entities:
+#     - diem: '29'
+#     - cntt: CNTT
+#   - action: action_diem_va_nganh
+#   - intent: inform_diem_va_nganh
+#     entities:
+#     - diem: '28'
+#     - cntt: CNTT
+#   - action: action_diem_va_nganh
+
+# - story: interactive_story_12
+#   steps:
+#   - intent: hoi_truong_theo_nganh
+#     entities:
+#     - cntt: CNTT
+#   - action: action_truong_phu_hop
+#   - slot_was_set:
+#     - nganh: cntt
+#   - intent: hoi_truong_theo_nganh
+#     entities:
+#     - cntt: cntt
+#   - action: action_truong_phu_hop
+#   - slot_was_set:
+#     - nganh: cntt
+#   - intent: inform_truong
+#     entities:
+#     - bkhn: Đại Học Bách Khoa Hà Nội
+#   - action: action_xac_nhan_truong
+#   - slot_was_set:
+#     - truong: bkhn
+#   - intent: inform_nganh
+#     entities:
+#     - attt: an toàn thông tin
+#   - action: action_ts_nganh_cua_truong
+#   - intent: diem_can_de_do_truong
+#     entities:
+#     - attt: attt
+#     - bkhn: bkhn
+#   - action: action_diem_can_de_do_truong
+#   - slot_was_set:
+#     - truong: bkhn
+
+# - story: interactive_story_103
+#   steps:
+#   - intent: intent_gioi_thieu_ve_truong
+#     entities:
+#     - ptit2: PTIT2
+#   - action: action_xac_nhan_truong
+#   - slot_was_set:
+#     - truong: ptit2
+#   - intent: inform_nganh
+#     entities:
+#     - attt: an toàn thông tin
+#   - action: action_ts_nganh_cua_truong
+#   - slot_was_set:
+#     - nganh: attt
+#   - slot_was_set:
+#     - truong: ptit2
+#   - intent: inform_truong
+#     entities:
+#     - bkhn: BÁCH KHOA HÀ NỘI
+#   - action: action_xac_nhan_truong
+#   - slot_was_set:
+#     - truong: bkhn
+#   - intent: inform_nganh
+#     entities:
+#     - attt: ATTT
+#   - action: action_ts_nganh_cua_truong
+#   - intent: inform_truong
+#     entities:
+#     - bkhn: BÁCH KHOA HÀ NỘI
+#   - action: action_xac_nhan_truong
+#   - slot_was_set:
+#     - truong: bkhn
+
+
+
+# - story: interactive_story_102
+#   steps:
+#   - intent: inform_truong
+#     entities:
+#     - dh_cntt: dai hoc cntt hcm
+#   - action: action_xac_nhan_truong
+#   - slot_was_set:
+#     - truong: dh_cntt
+#   - intent: inform_truong
+#     entities:
+#     - spkt: SPKT
+#   - action: action_xac_nhan_truong
+#   - intent: inform_truong
+#     entities:
+#     - khtn_hcm: KHTNHCM
+#   - action: action_xac_nhan_truong
+#   - slot_was_set:
+#     - truong: khtn_hcm
+#   - intent: inform_nganh
+#     entities:
+#     - iot: IOT
+#   - action: action_ts_nganh_cua_truong
+#   - intent: inform_nganh
+#     entities:
+#     - khmt: khoa hoc may tinh
+#   - action: action_ts_nganh_cua_truong
+#   - slot_was_set:
+#     - nganh: khmt
+#   - slot_was_set:
+#     - truong: khtn_hcm
+#   - intent: inform_nganh
+#     entities:
+#     - ttnt: ai
+#   - action: action_ts_nganh_cua_truong
+#   - slot_was_set:
+#     - nganh: ttnt
+#   - slot_was_set:
+#     - truong: khtn_hcm
+#   - intent: inform_nganh
+#     entities:
+#     - ktpm: ky thuat phAN MEM
+#   - action: action_ts_nganh_cua_truong
+
+# - story: interactive_story_101
+#   steps:
+#   - intent: inform_nganh
+#     entities:
+#     - qtkd: quan tri kinh doanh
+#   - action: action_ts_nganh_cua_truong
+#   - intent: inform_nganh
+#     entities:
+#     - ck: co khi
+#   - action: action_ts_nganh_cua_truong
+#   - intent: inform_nganh
+#     entities:
+#     - httt: he thong thong tin
+#   - action: action_ts_nganh_cua_truong
+#   - intent: inform_nganh
+#     entities:
+#     - httt: hệ thống thông tin
+#   - action: action_ts_nganh_cua_truong
+#   - intent: inform_nganh
+#     entities:
+#     - dt: điện tử
+#   - action: action_ts_nganh_cua_truong
+#   - intent: inform_truong
+#     entities:
+#     - ptit2: Học Viện Công Nghệ Bưu Chính Viễn Thông TP.HCM
+#   - action: action_xac_nhan_truong
+#   - slot_was_set:
+#     - truong: ptit2
+
+# - story: interactive_story_100
+#   steps:
+#   - intent: greet
+#   - action: action_custom_greet
+#   - intent: intent_quyen_uu_tien
+#   - action: utter_gioi_thieu_ve_diem_uu_tien
+#   - intent: intent_phuong_thuc_xet_tuyen
+#   - action: action_phuong_thuc_xet_tuyen

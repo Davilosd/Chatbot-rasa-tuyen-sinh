@@ -1,0 +1,709 @@
+version: "3.1"
+nlu:
+- intent: clear_slots
+  examples: |
+    - xoa999
+    - del999
+    - muda muda muda
+    - XOA999
+# - intent: chao
+#   examples: |
+#     - ohayo
+#     - konichiwa
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+    - xin chao
+    - Chào
+    - Buổi sáng
+    - cam on
+    - xin loi
+    - alo
+    - Xin chào
+    - Chào buổi sáng
+    - Chào buổi tối
+    - xin chào
+- intent: goodbye
+  examples: |
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - bye bye
+    - tạm biệt
+    - vậy thôi
+    - tam biet
+    - vay thoi
+- intent: search_google
+  examples: |
+    - [dark souls](google)
+    - [pokemon](google)
+    - [lol](google)
+- intent: intent_xet_tuyen_bo_sung
+  examples: |
+    - Em muốn hỏi, nếu Trường có tuyển sinh đợt bổ sung thì các học sinh trúng tuyển đợt bổ sung đó có được nhận chương trình giáo dục và học phí bình thường như các học sinh trúng tuyển đợt 1 không ạ ?
+    - dot thi bo sung
+    - đợt thi bổ sung
+    - thi bổ sung
+    - kỳ thi bổ sung
+    - trúng tuyển kỳ thi bổ sung thì có khác tuyển sinh đợt 1 ko
+    - trung tuyen ky thi bo sung thi co khac tuyen sinh dot 1 khong
+
+- intent: intent_xet_mot_nganh_cho_nhieu_khoi
+  examples: |
+    - đăng kí xét tuyển một ngành theo nhiều khối được không ạ
+    - xet tuyen mot nganh theo nhieu khoi
+    - Cho em hỏi có thể đăng kí xét tuyển một ngành theo nhiều khối không ạ và như vậy thứ tự xét tuyển như thế nào?
+- intent: dong_y
+  examples: |
+    - [Co](co)
+    - [1](co)
+    - [có](co)
+    - [Có](co)
+    - [Có ạ](co)
+    - [Vâng](co)
+    - [Dạ](co)
+    - [Phải ạ](co)
+    - [Đúng rồi](co)
+    - [chính xác](co)
+    - [đồng ý](co)
+    - [co]{"entity": "co", "value": "Co"}
+    - [tiep tuc](co)
+    - [tiếp tục](co)
+    - [chi tiết](co)
+    - [kể chi tiết hơn đi](co)
+    - [thông tin chi tiết](co)
+    - [chi tiet](co)
+    - [tiếp tục đi](co)
+    - [more](co)
+    - [thêm nữa](co)
+    - [Tiếp tục](co)
+- intent: khong_dong_y
+  examples: |
+    - [không](khong)
+    - [ko](khong)
+    - [Không ạ.](khong)
+    - [sai](khong)
+    - [0](khong)
+    - [hong](khong)
+    - [Từ chối](khong)
+    - [dừng lại](khong)
+    - [không đồng ý](khong)
+- intent: intent_hoi_bot_lam_duoc_gi
+  examples: |
+    - Bạn có thể làm được gì
+    - Bạn là ai
+    - Ai vậy
+    - Bạn có phải là người
+    - ban co the lam dc gi
+    - ban la ai
+- intent: intent_phuong_thuc_xet_tuyen
+  examples: |
+    - các hình thức xét tuyển đại học hiện nay
+    - phương thức xét tuyển
+    - cac hình thuc xet tuyen dai hoc hien nay
+    - phuong thuc xet tuyen
+    - hinh thuc xet tuyen
+    - phương thức xét tuyển của trường [PTIT1](ptit1)
+    - phuong thuc xet tuyen cua truong [học viện cơ sở](ptit2)
+    - hình thức xét tuyển trường [bách khoa hà nội](bkhn)
+    - thong tin xet tuyen truong [SPKT](spkt)
+    - hinh thuc xet tuyen cua truong [TREN](entity_above)
+    - hình thức xét tuyển của các trường đại học
+    
+- intent: intent_quy_che_tuyen_sinh
+  examples: |
+    - quy che tuyen sinh
+    - quy chế tuyển sinh
+    - quy trinh tuyen sinh
+    - quy trình tuyển sinh
+    - thông tin về kỳ tuyển sinh đại học
+    - quy chế tuyển sinh đại học
+- intent: hoi_nganh
+  examples: |
+    - [ATTT](attt) là gì?
+    - [IOT](iot) la gi
+    - giới thiệu về ngành [it](cntt)
+    - gioi thieu ve nganh [ATTT](attt)
+    - ngành [này](entity_above) là ngành [nào](entity_above)
+    - nganh [nay](entity_above) la nganh [nao](entity_above)
+    - ngành [ATTT](attt) là ngành nào
+    - nganh [internet of things](iot) la nganh gi
+    - [DT](dt) là ngành như thế nào
+    - [công nghệ thông tin](cntt) la nganh nhu the nao
+    - nganh [QTKD](qtkd) la gi
+    - NGANH [dien tu](dt) LA GI
+    - THONG TIN VE NGANH [MMT](mmt)
+    - NGANH [MT](mt) LA GI
+    - thông tin về ngành [CNTT](cntt)
+    - gioi thieu ve nganh [kia](entity_above)
+- intent: inform_nganh
+  examples: |
+    - [CNTT](cntt)
+    - [Công nghệ thông tin](cntt)
+    - [cong nghe thong tin](cntt)
+    - [DT](dt)
+    - [Điện Tử](dt)
+    - [ATTT](attt)
+    - [Sư phạm](sp)
+    - [su pham](sp)
+    - [an toan](attt)
+    - [an toàn](attt)
+    - [internet vạn vật](iot)
+    - [quản trị kinh doanh](qtkd)
+    - [cntt]{"entity": "cntt", "value": "CNTT"}
+    - nganh [mang may tinh](mmt)
+    - [cong nghe tt](cntt)
+    - [công nghệ thông tin]{"entity": "cntt", "value": "C\u00f4ng ngh\u1ec7 th\u00f4ng tin"}
+    - nganh [cntt]{"entity": "cntt", "value": "CNTT"} o truong tren
+    - [AN TOÀN THÔNG TIN]{"entity": "attt", "value": "an to\u00e0n th\u00f4ng tin"}
+    - Ngành [đó](entity_above)
+    - [TTNT](ttnt)
+    - [môi trường](mt)
+    - [VT](vt)
+    - [KTPM](ktpm)
+    - [CK](ck)
+    - [HTTT](httt)
+    - [KHMT](khmt)
+    - [mạng máy tính](mmt)
+    - [internet van vat]{"entity": "iot", "value": "IOT"}
+    - [khoa hoc may tinh](khmt)
+    - nganh [ai](ttnt)
+    - [ky thuat phAN MEM](ktpm)
+    - [quan tri kinh doanh](qtkd)
+    - [co khi](ck)
+    - [cơ khí](ck)
+    - [he thong thong tin](httt)
+    - [hệ thống thông tin](httt)
+    - [điện tử](dt)
+    - [Mạng máy tính và truyền thông dữ liệu](mmt)
+    - [mang may tinh va truyen thong du lieu](mmt)
+- intent: intent_cac_nganh_cua_truong
+  examples: |
+    - Các ngành đào tạo của trường [trên](entity_above)
+    - CÁC NGÀNH CỦA TRƯỜNG [hoc vien co so](ptit2)
+    - TRƯỜNG [bưu chính viễn thông miền nam](ptit2) CÓ NHỮNG NGÀNH NÀO
+    - cac nganh ma truong [PTIT2](ptit2) co
+    - CÁC NGÀNH CỦA TRƯỜNG [bưu chính viễn thông miền bắc](ptit1)
+    - TRƯỜNG [PTIT1](ptit1) CÓ NHỮNG NGÀNH NÀO
+    - cac nganh ma truong [PTIT1](ptit1) co
+    - CÁC NGÀNH CỦA TRƯỜNG [bach khoa ha noi](bkhn)
+    - TRƯỜNG [BK HN](bkhn) CÓ NHỮNG NGÀNH NÀO
+    - cac nganh ma truong [bách khoa 1](bkhn) có
+    - cac nganh mà trường [BKHCM](bkhcm) có
+    - cac nganh ma truong [SPKT](spkt) có
+    - cac nganh mà trường [DHCNTT](dh_cntt) có
+    - cac nganh ma truong [KHTNHCM](khtn_hcm) có
+    - trường [entity_above](entity_above) có tổng cộng bao nhiêu ngành
+    - [BKHN] co tong cong bao nhieu nganh
+    - CÓ TẤT CẢ BAO NHIÊU NGÀNH trong trường [PTIT1](ptit1)
+    - cac nganh cua truong [DHCNTT](dh_cntt)
+    - cac nganh dao tao cua truong [dai hoc cntt](dh_cntt)
+- intent: hoi_nganh_hot
+  examples: |
+    - cac nganh hot hien nay
+    - hoc nganh gi de kiem viec
+    - nghe nao kiem nhieu tien
+    - nganh nao kiem nhieu tien nhat hien nay
+    - nganh hot
+    - CAC NGANH NOI BAT HIEN NAY
+    - Các ngành hot
+- intent: intent_thong_tin_dao_tao
+  examples: |
+    - thông tin đào tạo trường [entity_above](entity_above)
+    - thong tin dao tao cua truong [PTIT1](ptit1)
+    - [hvcnbcvt 2](ptit2) thông tin đào tạo
+    - thông tin đào tạo (bach khoa ho chi minh)(bkhcm)
+    - THÔNG TIN ĐÀO TẠO CỦA TRƯỜNG [entity_above](entity_above)
+- intent: intent_nganh_hot_cua_truong
+  examples: |
+    - cac nganh hot cua truong [entity_above](entity_above)
+    - cac nganh noi bat cua truong [entity_above](entity_above)
+    - nganh hot cua truong [học viện công nghệ bưu chính viễn thông miền nam](ptit2)
+    - ngành nổi bật của [bkhcm](bkhcm)
+    - Các ngành nổi bật của trường [entity_above](entity_above)
+    - cac nganh noi bat cua truong [PTIT2](ptit2)
+    - nganh tot nhat cua [PTIT1](ptit1)
+    - [PTIT1](ptit1) co nganh nao tot
+    - ngành học hot nhất của (PTIT1)(ptit1)
+    - một số ngành nổi bật của trường [SPKT](spkt)
+- intent: inform_diem_va_nganh
+  examples: |
+    - tôi đạt [22](diem) tôi nên học [CNTT](cntt) ở trường nào
+    - tôi có [24](diem) điểm, [CNTT](cntt)
+    - [cong nghe thong tin](cntt) điểm của tôi là [25](diem)
+    - [QTKD](qtkd) [27](diem) la diem cua toi
+    - [ATTT](attt), [27](diem) diem là diem cua toi
+    - [27](diem) diem thi co the hoc [cong nghe thong tin](cntt) o dau
+    - [27](diem) điểm thì học ngành [kỹ thuật cơ khí](ck) ở đâu
+    - [25](diem) điểm thì học ngành [entity_above](entity_above) ở đâu
+    - toi co [24](diem) diem toi nen hoc [cntt]{"entity": "cntt", "value": "CNTT"} o dau
+    - toi co [29](diem) diem toi nen hoc [cntt]{"entity": "cntt", "value": "CNTT"} o dau
+    - [28](diem) diem thi co the hoc [cntt]{"entity": "cntt", "value": "CNTT"} o du
+    - có [25](diem) điểm  trong kỳ thi THPT thì có thể học [ttnt](ttnt) ở đâu
+    - duoc [27](diem) diem thi co the hoc nganh [it](cntt) o dau
+    - được [21](diem) điểm thì có thể học ngành [vien thông](vt) ở đâu
+- intent: khong_biet_chon_nganh_nao
+  examples: |
+    - tôi không biết nên học ngành nào cho phù hợp
+    - tôi nên học ngành nào
+    - tôi chưa quyết định được ngành học
+    - ngành học phù hợp với tôi
+    - cho tôi hỏi ngành nào nên học
+    - cho toi hoi nganh nao nen hoc
+    - tôi muốn biết ngành phù hợp với bản thân
+    - toi muon biet nganh phu hop voi ban than
+    - ngành mà tôi nên học
+    - nganh ma toi nen hoc
+    - khong biet toi nen chon nganh nao
+- intent: intent_hoc_duoc_nganh_nao_cua_truong_nay_voi_so_diem_nay
+  examples: |
+    - [25](diem) điểm học được ngành nào trường [entity_above](entity_above)
+    - [18](diem) có thể học được ngành nào của trường [học viện cơ sở bắc](ptit2)
+    - trường [SPKT](spkt) học được ngành nào với số điểm [22](diem)
+    - [23.5](diem) diem hoc duoc nganh nao [BKHN](bkhn)
+    - [24.8](diem) co the hoc duoc nganh nao cua truong [DHCNTT](dhcntt)
+
+- intent: so_thich
+  examples: |
+    - [Chơi game](soThich)
+    - [hacker](soThich)
+- intent: khoi_thi
+  examples: |
+    - [A1](khoi)
+    - Tôi thi khối [A0](khoi)
+    - [B1](khoi)
+    - thong tin ve khoi thi [d01](khoi)
+    - co cac khoi thi nao
+    - khối thi [d00](khoi) là khối thi gì
+    - khối thi [a01](khoi)
+- intent: hoi_khoi_thi_cua_nganh
+  examples: |
+    - [cntt](cntt) thi bang nhung khoi nao
+    - cac khoi thi cua [ATTT](attt)
+    - học [cong nghe thong tin](cntt) thì nên thi khối nào?
+    - khoi thi cua nganh [vien thong](vt)
+    - khối thi của ngành [trí tuệ nhân tạo](ttnt)
+    - Khối thi của ngành [HTTT](httt)
+    - tổ hợp xét tuyển của ngành [CNTT](cntt)
+    - khối thi cua nganh [entity_above](entity_above)
+- intent: hoi_truong_theo_nganh
+  examples: |
+    - truong dai hoc nao tot nhat de hoc [cntt](cntt)
+    - truong dai hoc nao tot nhat de hoc [cong nghe thong tin](cntt)
+    - hoc [ATTT](attt) o truong dai hoc nao thi hop ly?
+    - truong dai hoc nao tot de hoc [cntt]{"entity": "cntt", "value": "CNTT"}
+    - nên học [ai](qtkd) ở trường nào
+    - nen hoc [kỹ thuật phần mềm](ktpm) o truong nao
+    - nen hoc [IOT](iot) o truong nao
+    - các trường học [công nghệ thông tin](cntt) tốt
+    - nên học [ATTT](attt) ở đâu
+    - các trường có thể học (VT)(vt)
+    - Trường có ngành [it](cntt)
+    - truong co nganh [khoa học máy tính](khmt)
+    - truong nao co nganh [QTKD](qtkd)
+    - truong nao hoc nganh [ky thuat co khi](ck) thi tot
+    - trường nào học ngành [entity_above](entity_above) thì tốt
+    - trường nào tốt nhất để học ngành [entity_above](entity_above)
+    - trường nào có ngành [moi truong](mt)
+# - intent: hoi_top_truong
+#   examples: |
+#     - các trường đại học kỹ thuật nổi tiếng ở vn
+#     - các trường đại học kinh tế nổi tiếng ở vn
+#     - top truong ky thuat
+# - intent: intent_diem_chuan_nganh_truong
+#   examples: |
+#     - diem chuan
+
+- intent: intent_thong_tin_ts_nganh_cua_truong
+  examples: |
+    - Thong tin tuyen sinh nganh [cntt](cntt) cua truong [PTIT2](ptit2)
+    - [cong nghe thong tin](cntt) va (PTIT1)[ptit1]
+    - tuyen sinh nganh [ATTT](attt) cua truong tren
+    - thông tin tuyển sinh của trường (bkhcm)[bkhcm] của ngành [này](entity_above)
+    - thông tin tuyển sinh của ngành đó với trường đó
+    - thong tin tuyen sinh cua truong nay voi nganh [đó](entity_above)
+    - thong tin tuyen sinh cua nganh [trên](entity_above) voi truong [entity_above](entity_above)
+    - tuyen sinh nganh [cntt]{"entity": "cntt", "value": "CNTT"} cua truong [ptit2]{"entity": "ptit2", "value": "PTIT2"}
+    - thong tin tuyen sinh cua nganh [trên](entity_above) và truong tren
+    - thông tin tuyển sinh ngành [an toàn](attt) trường [hoc vien co so](ptit2)4
+    - Thông tin tuyển sinh trường [PTIT2](ptit2) nam [2023](nam)
+    - Tuyển sinh trường [dh công nghệ thông tin](dh_cntt)
+    - tuyen sinh truong [đại học công nghệ thông tin](dh_cntt) nam [2023](nam)
+    - tuyển sinh trường [đại học cntt](dh_cntt) năm [2022](nam)
+    - tuyen sinh dai hoc[BKHN](bkhn)
+    - tuyen sinh truong [tren](entity_above)
+    - TUYỂN SINH ĐẠI HỌC [dh cntt](dh_cntt) năm [2023](nam)
+    - Thông tin tuyển sinh [PTIT2](ptit2)
+    - Tuyển sinh [PTIT2](ptit2)
+    - [PTIT HN](ptit1) tuyển sinh
+    - [BKHN](bkhn) tuyen sinh
+    - thong tin tuyen sinh [BKHN](bkhn)
+    - tuyển sinh [ptit2]{"entity": "ptit2", "value": "PTIT2"}
+    - thong tin tuyen sinh cua truong nay
+    - nganh [ATTT](attt) cua truong [PTIT2](ptit2)
+    - [cntt hcm](dh_cntt) va [cntt](cntt)
+    - ngành [IOT](iot) của trường [PTIT1](ptit1)
+    - thông tin tuyển sinh ngành [ATTT](attt) của trường [đại học bách khoa hồ chí minh](bkhcm)
+    - thông tin tuyển sinh ngành [ATTT](attt) của [bkhn](bkhn)
+    - trường [bách khoa hồ chí minh](bkhcm) và thông tin của ngành [ATTT](attt)
+    - thông tin tuyển sinh ngành [IOT](iot) của trường [bkhn](bkhn)
+    - ngành [ATTT](attt) của [BKHN](bkhn)
+    - [CNTT](cntt) [PTIT1](ptit1)
+    - Tuyển sinh [DHCNTT](dh_cntt) năm [2021](nam)
+    - chi tieu [BKHN](bkhn)
+    - chỉ tiêu [PTIT HCM](ptit2)
+    - chỉ tiêu ngành [TTNT](ttnt) của trường [BKHCM](bkhcm)
+    - trường [SPKT](spkt) có những ngành nào
+    - diem chuan nganh [ATTT](attt) cua truong [PTIT2](ptit2)
+    - điểm chuẩn ngành [CNTT](cntt) của trường [BKHCM](bkhcm)
+    - diem nganh [IOT](iot) truong [PTIT1](ptit1)
+    - điểm ngành [QTKT](qtkd) truong [BKHN](bkhn)
+    - diem chuan nganh [DT](dt)
+    - diem chuan [CNTT](cntt)
+    - điểm chuẩn ngành [CNTT](cntt)
+    - điểm chuẩn ngành [ATTT](attt) của trường [PTIT2](ptit2) năm ngoái
+    - điểm chuẩn ngành [QTKD](qtkd) của trường [entity_above](entity_above)
+    - điểm chuẩn ngành [IOT](iot) của trường [entity_above](entity_above)
+    - truong nay co diem chuan nganh [CNTT](cntt) là bao nhiêu
+    - diem chuan nGANH [VT](vt) CUA TRUONG [entity_above](entity_above)
+    - ĐIỂM TUYỂN SINH NGÀNH [CNTT](cntt) CỦA TRƯỜNG [PTIT2](ptit2)
+    - điểm tuyển sinh ngành [ATTT](attt) của trường [BKHN](bkhn)
+    - điểm chuẩn [KHMT](khmt) của [BKHN](bkhn)
+    - TÔI CẦN BAO NHIÊU ĐIỂM ĐỂ ĐỖ TRƯỜNG [PTIT2](ptit2)
+    - Bao nhiêu điểm để em vào trường [PTIT2](ptit2)
+    - em can bao nhieu diem de do truong [PTIT2](ptit2)
+    - đạt bao nhiêu điểm thì có thể đỗ trường [PTIT2](ptit2)
+    - trường [PTIT2](ptit2) cần bao nhiêu điểm thì đạt
+    - can bao nhieu diem de do truong [ptit2]{"entity": "ptit2", "value": "PTIT2"}
+    - điểm chuẩn [PTIT2](ptit2)
+    - Điểm tuyển sinh
+    - diem chuan nganh [kia](entity_above)
+    - cần bao nhiêu điểm để dô trường
+    - diem chuan [BKHN](bkhn)
+    - diem chuan cua truong [do](entity_above)
+    - Điểm chuẩn trường [PTIT2](ptit2)
+    - diem chuan truong [PTIT2](ptit2)
+    - Kết quả tuyển sinh năm ngoái trường [PTIT2](ptit2)
+    - Kết quả tuyển sinh năm [2022](nam) của trường [BKHN](bkhn)
+    - diểm chuẩn trường [bkhcm](bkhcm) năm [2021](nam)
+    - điểm chuẩn của [PTIT2](ptit2)
+    - điểm chuẩn đại học [sư phạm kỹ thuật](spkt)
+    - diem chuan [DHCNTT](dh_cntt)
+    - can it nhAT bao nhieu diem de vo turong [su pham ky thuat](spkt)
+# - intent: diem_can_de_do_truong
+#   examples: |
+#     - diem_can_de_do_tuỏng
+
+- intent: doi_nguyen_vong
+  examples: |
+    - Tôi có thể thay đổi nguyện vọng đăng ký tuyển sinh sau khi đã nộp hồ sơ không?
+    - Co the doi nguyen vong dang ky sau khi da nop ho so ko
+    - Em đã nộp hồ sơ thì có thể dổi nguyện vọng đăng ký được không?
+    - Nộp hồ sơ xong có đổi nguyện vọng được không?
+    - Doi nguyen vong duoc khong
+    - TOI CO THE DOI NGUYEN VONG SAU KHI DA NOP KO
+    - toi co the doi nguyen vong sau khi da dang ki ko
+    - toi muon doi nguyen vong
+    - TOI CO THE DOI NGUYEN VONG DUOC KO
+    - CÁCH ĐỔI NGUYỆN VỌNG 
+- intent: intent_hoi_ma_truong
+  examples: |
+    - ma truong cua truong [PTIT2](ptit2)
+    - mã trường của trường [BKHN](bkhn)
+    - ma cua truong [dai hoc cong nghe thong tin](dh_cntt)
+    - truong [cong nghe thong tin hcm](dh_cntt) co ma truong la gi
+    - mã trường [học viện bưu chính 1](ptit1) là gì
+    - cho hỏi mã trường của [PTIT2](ptit2)
+    - mã trường của trường [entity_above](entity_above)
+- intent: intent_ho_so_xthb_dai_hoc_can_j
+  examples: |
+    - hồ sơ xét tuyển học bạ cần gì
+    - hồ sơ xét tuyển hoc ba
+    - ho so xet tuyen hoc ba can gi
+    - cần có những gì trong hồ sơ XÉT TUYỂN học bạ
+    - CẦN CHUẨN BỊ GÌ CHO HỒ SƠ ĐỂ XÉT TUYỂN học bạ
+- intent: hoi_thi_nang_luc
+  examples: |
+    - Tôi muốn biết về kỳ thi phỏng vấn hoặc kiểm tra năng lực của trường [PTIT2](ptit2), làm thế nào để đăng ký?
+    - Thi nang luc truong [BKHN](bkhn)
+    - kỳ thi năng lực của trường [Bách Khoa Hà Nội](bkhn) diễn ra khi nào
+    - dang ky thi nang luc cua dai hoc [Bách Khoa Hà Nội](bkhn) nhu the nao?
+    - thi nang luc truong [ptit2]{"entity": "ptit2", "value": "PTIT2"}
+    - thi nang luc [dai hoc quoc gia ha noi](khu_vuc_hn)
+    - thi nang luc [dai hoc quoc gia hcm](khu_vuc_hcm)
+    - KY THI NANG LUC CUA [DHQCHCM](khu_vuc_hcm)
+    - THONG TIN VE KY THI [DHQCHN](khu_vuc_hn)
+    - Thi năng lực [TP.HCM](khu_vuc_hcm)
+    - Thi năng lực [Hà Nội](khu_vuc_hn)
+    - ky thi nang luc [tphcm](khu_vuc_hcm)
+    - kỳ thi năng lực ở [hn](khu_vuc_hn)
+    - ky thi nang luc [khu vuc hcm](khu_vuc_hcm)
+    - kỳ thi năng lực ở [khu vuc hn](khu_vuc_hn)
+    - kì thi năng lực [hn](khu_vuc_hn)
+    - thông tin về kỳ thi năng lực [HN](khu_vuc_hn)
+- intent: intent_dk_thi_nang_luc
+  examples: |
+    - lam sao de dang ki ki thi nang luc
+    - làm sao để đăng kí kì thi năng lực
+    - đăng kí thi năng lực kiểu gì
+    - cách đăng kí thi năng lực
+- intent: xem_ket_qua_thi
+  examples: |
+    - Làm thế nào để xem kết quả xét tuyển đại học?
+    - XEM KET QUA THI DAI HOC O DAU
+    - KET QUA THI DAI HOC
+    - xem kết quả xét tuyển ở đâu
+    - xem ket qua xet tuyen o dau
+    - xem ket qua xet tuyen nhu the nao
+    - xem kết quả xét tuyển như thế nào
+- intent: giay_to_can_de_du_thi
+  examples: |
+    - Tôi cần chuẩn bị những giấy tờ gì khi đi dự thi THPT?
+    - GIAY TO CAN THIET KHI THI DAI HOC
+    - DI thi can chuan bI giay to nao
+    - thi sinh du thi can chuan bi gi
+    - thí sinh dự thi THPT cần chuẩn bị giấy tờ gì
+- intent: intent_giay_to_giam_hoc_phi
+  examples: |
+    - giay to can de giam hoc phi
+    - giay to mien giam hoc phi
+    - giấy tờ miễn giảm học phí
+    - giấy TỜ CẦN ĐỂ giảm học phí
+    - can chuan bi giay to gi de co the duoc giam hoc phi
+    - neu thuoc dien duoc giam hoc phi thi can nhung giay to nao
+    - cần chuẩn bị giấy tờ gì để có thể được giảm học phí
+    - nếu thuộc diện được giảm học phí thì cần những giấy tờ nào
+    
+- intent: intent_giay_to_nhap_hoc
+  examples: |
+    - cần chuẩn bị giấy tờ gì khi nhập học
+    - giấy tờ nhập học
+    - giay to nhap hoc
+- intent: intent_nhiem_vu_thi_sinh
+  examples: |
+    - nhiệm vụ của thí sinh
+    - thí sinh dự thi cần phải làm gì
+    - cần làm gì để xét tuyển đại học
+    - làm gì trong kỳ thi THPT quốc gia
+    - can lam gi trong ky thi THPT quoc gia
+    - các bước xÉT TUYỂN ĐẠI HỌC
+    - can lam gi de xet tuyen dai hoc
+- intent: intent_cac_nganh_va_truong_ma_bot_co
+  examples: |
+    - cac nganh ma bot co
+    - danh sach nganh cua bot co the ho tro
+    - bot dang co nhung nganh nao
+    - các ngành bot có thể hỗ trợ
+    - bot đang có những ngành nào
+    - data ngành
+    - danh sách ngành
+    - cac truong ma bot co
+    - danh sach truong cua bot co the ho tro
+    - bot dang co nhung truong nao
+    - các trường bot có thể hỗ trợ
+    - bot đang có những trường nào
+    - data trường
+    - danh sách trường
+    - có bao nhiêu ngành mà bot có dữ liệu
+    - co bao nhieu truong ma bot co du lieu
+- intent: intent_quyen_uu_tien
+  examples: |
+    - Chính sách ưu tiên
+    - CHINH SACH UU TIEN
+    - Những trường hợp nào thì được cộng điểm thi thpt quốc gia
+    - Có quyền ưu tiên nào cho học sinh xuất sắc hoặc người có hoàn cảnh khó khăn không?
+    - quyen uu tien dai hoc
+    - thuoc dien uu tien co phuc loi nao ko
+    - Diem uu tien la gi
+    - diem uu tien
+    - điểm ưu tiên là gì
+    - điểm ưu tiên
+    - quyen uu tien
+- intent: intent_chi_tiet_tt_ve_diem_uu_tien
+  examples: |
+    - chi tiet ve diem uu tien
+    - ct diem uu tien
+    - toan bo thong tin ve diem uu tien
+    - toàn bộ thông tin chi tiết về điểm ưu tiên
+- intent: intent_xet_hoc_ba_co_duoc_tinh_diem_uu_tien
+  examples: |
+    - Xét học bạ có được tính điểm ưu tiên ko
+    - diem uu tien co tinh vao xet hoc ba ko
+    - hoc ba va diem uu tien
+- intent: intent_tinh_diem_cong_uu_tien
+  examples: |
+    - Tôi có [23](diem) thuộc diện [khu vực 1](kv1) thì điểm của tôi là bao nhiêu
+    - [27](diem) thuộc [Nhóm ƯT1](ut1) và [KV2-NT](kv2nt) thì điểm cộng là bao nhiêu
+    - thuộc [KV2](kv2) được [16](diem) điểm thì tổng điểm là bao nhiêu
+    - [KV2](kv2)
+    - [KV2-NT](kv2nt)
+    - [UT1](ut1)
+    - [22](diem) diem thuoc [uu tien 2](ut2)
+    - [25](diem) DIEM THUOC [UU TIEN 1](ut1)
+    - [đặc biệt khó khăn](kv1)
+    - [vùng sâu vùng xa](kv1)
+    - [vùng dân tộc thiểu số](kv1)
+    - [miền núi](kv1)
+    - [biên giới](kv1)
+    - [xã an toàn khu vào diện đầu tư của Chương trình 135](kv1)
+    - toi o vung [hai dao](kv1) duoc cong bao nhieu diem
+    - ở vùng [biên giới](kv1) được cộng bao nhiêu điểm
+    - [bien gioi](kv1) thuộc khu vực mấy
+    - [28](diem) diem thuoc [khu vuc 1](kv1) thi diem cong la bao nhieu
+    - em co [27](diem) diem va em thuoc dien [uu tien 2](ut2) thi tong diem cua em la bao nhieu
+    - toi co [23](diem) diem thuoc [uu tien 2](ut2) thi diem cua toi se la
+    - cach tinh diem uu tien
+    - cách tính điểm ưu tiên
+- intent: thi_sinh_tu_do
+  examples: |
+    - Làm thế nào để đăng ký dự thi đại học nếu tôi là thí sinh tự do (không theo trường lớp)?
+    - TOi la thi sinh tu do
+    - dang ky du thi dai hoc nhung toi la thi sinh tu do
+    - đăng kí dự thi thpt quốc gia với tư cách là thí sinh tự do
+    - dang ky xet tuyen dai hoc voi tu cach la thi sinh tu do
+- intent: inform_truong
+  examples: |
+    - [PTIT2](ptit2)
+    - [ptit hcm](ptit2)
+    - [hvcnbcvt hn](ptit1)
+    - [ptit hn](ptit1)
+    - [Đại Học Khoa Học Tự Nhiên hcm](khtn_hcm)
+    - [khtn tphcm](khtn_hcm)
+    - [dh khoa hoc tu nhien tphcm](khtn_hcm)
+    - [Đại Học Công Nghệ Thông Tin](dh_cntt)
+    - [dai hoc cong nghe thong tin](dh_cntt)
+    - [dai hoc cntt](dh_cntt)
+    - [dh cong nghe TT](dh_cntt)
+    - [khoa học tự nhiên hà nội](khtn_hn)
+    - [hoc vien cong nghe buu chinh vien thong 2](ptit2)
+    - truong [bach khoa hcm](bkhcm)
+    - [bach khoa hcm](bkhcm)
+    - [Bách Khoa Hà Nội](bkhn)
+    - [BÁCH KHOA HÀ NỘI](bkhn)
+    - [SPKT](spkt)
+    - [DHCNTT](dh_cntt)
+    - [KHTNHCM](khtn_hcm)
+    - [khtn hn](khtn_hn)
+- intent: test_nghe_nghiep
+  examples: |
+    - test nghề nghiệp
+    - trắc nghiệm nghề nghiệp
+    - test nghe nghiep
+    - quiz nghe nghiep
+    - trac nghiem nghe nghiep
+- intent: inform_diem_trac_nghiem
+  examples: |
+    - [1.0](diemTN)
+    - [2.0](diemTN)
+    - [3.0](diemTN)
+    - [4.0](diemTN)
+    - [5.0](diemTN)
+- intent: intent_hoi_cac_truong_co_hoc_phi_phu_hop
+  examples: |
+    - các trường có học phí phù hợp
+    - học phí của tường nào dưới (20)[triệu] mà có thể học [cong nhgee thông TIN](cntt)
+    - DƯỚI [15 000 000](vnd) một kỳ thì có trường nào học ổn
+    - các trường có học phí dưới [17 000 000](vnd) một kỳ
+    - học phí của trường nào khoảng [16](trieu) một kỳ
+    - hoc phi duoi [10](trieu) mot hoc ky
+    - truong co hoc phi phu hop
+- intent: intent_hoc_bong_cua_truong
+  examples: |
+    - học bổng của trường này
+    - thông tin về học bổng của trường [ptit2]{"entity": "ptit2", "value": "PTIT2"}
+    - các loại học bổng của trường (học viện bưu chính viễn thông miền bắc)(ptit1)
+    - thông tin học bổng của trường [đó](entity_above)
+    - hoc bong cua truong [nay](entity_above)
+- intent: intent_gioi_thieu_ve_truong
+  examples: |
+    - giới thiệu về trường [PTIT2](ptit2)
+    - thông tin về trường [đại học công nghệ thông tin](dh_cntt)
+    - thong tin ve truong [PTIT2](ptit2)
+    - trường này là trường nào
+    - trường [sư phạm kỹ thuật](spkt) là trường nào
+    - thông tin trường [ptit2]{"entity": "ptit2", "value": "PTIT2"}
+    - thong tin truong [DHCNTT](dh_cntt)
+    - thông tin trường [SPKT](spkt)
+- intent: intent_truong_co_may_co_so
+  examples: |
+    - Thông tin cơ sở của trường
+    - trường này có mấy cơ sở
+    - thông tin về các cơ sở của trường [học viện công nghệ bưu chính viễn thông cơ sở 1](ptit1)
+    - các cơ sở của trường [PTIT2](ptit2) khác nhau thì bằng có khác nhau ko
+- intent: intent_dieu_kien_tham_gia_tuyen_sinh
+  examples: |
+    - Điều kiện tham gia tuyển sinh
+    - dieu kien tham gia tuyen sinh
+    - lam gi de co the tham gia tuyen sinh dai hoc
+    - điều kiện tham gia tuyển sinh đại học
+    - Điều kiện tham gia tuyển sinh đh
+- intent: intent_hoi_hoc_phi_cua_truong
+  examples: |
+    - cho hỏi học phí của trường
+    - học phí của trường [PTIT2](ptit2)
+    - học phí của trường [entity_above](entity_above)
+    - thông tin về học phí của trường [entity_above](entity_above)
+    - hoc phi cua truong [PTIT2](ptit2)
+    - hoc phi cua truong nay
+    - hoc phi [BKHN](bkhn)
+    - hoc phi của trường đại học (SPKT)(spkt)
+    - Học phí [DHCNTT](dh_cntt)
+    - trường [entity_above](entity_above) có học phí là bao nhiêu
+    - truong [khoa hoc tu nhien hcm](khtn_hcm) co hoc phi la bao nhieu
+    - [khoa hoc tu nhien ha noi](khtn_hn) học phí như thế nào
+    - [học viện công nghệ bưu chính viễn thông miền bắc](ptit1) hoc phi nhu the nao
+    - hoc phi truong [entity_above](entity_above)
+    - học phí trường [entity_above](entity_above)
+- synonym: Co
+  examples: |
+    - co
+- synonym: CNTT
+  examples: |
+    - cntt
+- synonym: Công nghệ thông tin
+  examples: |
+    - công nghệ thông tin
+- synonym: an toàn thông tin
+  examples: |
+    - AN TOÀN THÔNG TIN
+- synonym: IOT
+  examples: |
+    - iot
+- synonym: PTIT2
+  examples: |
+    - ptit2
+- synonym: BÁCH KHOA HÀ NỘI
+  examples: |
+    - bách khoa hà nội
+- synonym: PTIT1
+  examples: |
+    - ptit1
+- synonym: Đại Học Bách Khoa Hà Nội
+  examples: |
+    - đại học Bách khoa hà nội
+- synonym: SPKT
+  examples: |
+    - su pham ky thuat
+- synonym: KHTNHCM
+  examples: |
+    - khoa hoc tu nhien hcm
+- synonym: PTIT
+  examples: |
+    - ptit
+- synonym: hoc vien cong nghe buu chinh vien tHONg
+  examples: |
+    - hoc vien cong nghe buu chinh vien thong

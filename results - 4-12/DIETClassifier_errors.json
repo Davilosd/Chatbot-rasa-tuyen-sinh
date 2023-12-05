@@ -1,0 +1,80 @@
+[
+  {
+    "text": "Không ạ.",
+    "entities": [
+      {
+        "start": 0,
+        "end": 8,
+        "value": "Không ạ.",
+        "entity": "khong"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "0",
+    "entities": [
+      {
+        "start": 0,
+        "end": 1,
+        "value": "0",
+        "entity": "khong"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "co",
+        "start": 0,
+        "end": 1,
+        "confidence_entity": 0.5042181015014648,
+        "value": "0",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "thông tin tuyển sinh ngành an toàn trường hoc vien co so4",
+    "entities": [
+      {
+        "start": 27,
+        "end": 34,
+        "value": "an toàn",
+        "entity": "attt"
+      },
+      {
+        "start": 42,
+        "end": 56,
+        "value": "hoc vien co so",
+        "entity": "ptit2"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "attt",
+        "start": 27,
+        "end": 34,
+        "confidence_entity": 0.963346004486084,
+        "value": "an toàn",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "tuyen sinh dai hocBKHN",
+    "entities": [
+      {
+        "start": 18,
+        "end": 22,
+        "value": "BKHN",
+        "entity": "bkhn"
+      }
+    ],
+    "predicted_entities": []
+  }
+]

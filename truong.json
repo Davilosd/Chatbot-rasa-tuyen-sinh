@@ -1,0 +1,15 @@
+[{
+    "maTruong": "BVS",
+    "tenTruong": {
+      "diem": "2",
+      "lamo": "3"
+    }
+  },
+  {
+    "maTruong": "BVN",
+    "tenTruong": {
+      "diem": "2",
+      "lamo": "3"
+    }
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "text": "Công nghệ thông tin",
+    "entities": [
+      {
+        "start": 0,
+        "end": 19,
+        "value": "Công nghệ thông tin",
+        "entity": "cntt"
+      }
+    ],
+    "predicted_entities": []
+  }
+]

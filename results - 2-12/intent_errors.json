@@ -1,0 +1,146 @@
+[
+  {
+    "text": "good by",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.9586117267608643
+    }
+  },
+  {
+    "text": "cee you later",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "intent_nhiem_vu_thi_sinh",
+      "confidence": 0.10200454294681549
+    }
+  },
+  {
+    "text": "good night",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.9533708095550537
+    }
+  },
+  {
+    "text": "bye",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.2797636091709137
+    }
+  },
+  {
+    "text": "goodbye",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.9431819319725037
+    }
+  },
+  {
+    "text": "bye bye",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "intent_hoi_hoc_phi_cua_truong",
+      "confidence": 0.08310700207948685
+    }
+  },
+  {
+    "text": "tạm biệt",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "intent_tinh_diem_cong_uu_tien",
+      "confidence": 0.7708351612091064
+    }
+  },
+  {
+    "text": "vậy thôi",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "intent_hoi_bot_lam_duoc_gi",
+      "confidence": 0.7450975179672241
+    }
+  },
+  {
+    "text": "tam biet",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "intent_quy_che_tuyen_sinh",
+      "confidence": 0.17006301879882812
+    }
+  },
+  {
+    "text": "vay thoi",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "intent_hoi_bot_lam_duoc_gi",
+      "confidence": 0.27677464485168457
+    }
+  },
+  {
+    "text": "0",
+    "intent": "khong_dong_y",
+    "intent_prediction": {
+      "name": "dong_y",
+      "confidence": 0.6621330380439758
+    }
+  },
+  {
+    "text": "thông tin về ngành CNTT",
+    "intent": "hoi_nganh",
+    "intent_prediction": {
+      "name": "inform_nganh",
+      "confidence": 0.46603402495384216
+    }
+  },
+  {
+    "text": "tổ hợp xét tuyển của ngành CNTT",
+    "intent": "hoi_khoi_thi_cua_nganh",
+    "intent_prediction": {
+      "name": "intent_quyen_uu_tien",
+      "confidence": 0.11949137598276138
+    }
+  },
+  {
+    "text": "chi tieu BKHN",
+    "intent": "intent_thong_tin_ts_nganh_cua_truong",
+    "intent_prediction": {
+      "name": "intent_cac_nganh_cua_truong",
+      "confidence": 0.11852966248989105
+    }
+  },
+  {
+    "text": "chỉ tiêu PTIT2",
+    "intent": "intent_thong_tin_ts_nganh_cua_truong",
+    "intent_prediction": {
+      "name": "inform_truong",
+      "confidence": 0.7560681700706482
+    }
+  },
+  {
+    "text": "trường SPKT có những ngành nào",
+    "intent": "intent_thong_tin_ts_nganh_cua_truong",
+    "intent_prediction": {
+      "name": "intent_cac_nganh_cua_truong",
+      "confidence": 0.9797990322113037
+    }
+  },
+  {
+    "text": "cách đăng kí thi năng lực",
+    "intent": "intent_dk_thi_nang_luc",
+    "intent_prediction": {
+      "name": "hoi_thi_nang_luc",
+      "confidence": 0.7022546529769897
+    }
+  },
+  {
+    "text": "truong co hoc phi phu hop",
+    "intent": "intent_hoi_cac_truong_co_hoc_phi_phu_hop",
+    "intent_prediction": {
+      "name": "intent_hoi_hoc_phi_cua_truong",
+      "confidence": 0.781810462474823
+    }
+  }
+]

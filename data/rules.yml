@@ -1,0 +1,214 @@
+version: "3.1"
+
+rules:
+
+- rule: fall back
+  steps:
+  - intent: nlu_fallback
+  - action: action_custom_fallback
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say `hello` when the user starts a conversation
+  conversation_start: true
+  steps:
+  - action: action_custom_greet
+
+- rule: xem_ket_qua_thi
+  steps:
+  - intent: xem_ket_qua_thi
+  - action: utter_xem_ket_qua_thi
+- rule: hoi khoi thi cua nganh 
+  steps:
+  - intent: hoi_khoi_thi_cua_nganh
+  - action: action_khoi_thi_cua_nganh
+
+- rule: hoi nganh hot
+  steps:
+  - intent: hoi_nganh_hot
+  - action: utter_nganh_hot
+
+- rule: thong tin khoi thi
+  steps:
+  - intent: khoi_thi
+  - action: action_tt_khoi_thi
+
+- rule: thi sinh tu do
+  steps:
+  - intent: thi_sinh_tu_do
+  - action: action_thi_sinh_tu_do
+
+- rule: xet_mot_nganh_cho_nhieu_khoi
+  steps:
+  - intent: intent_xet_mot_nganh_cho_nhieu_khoi
+  - action: utter_xet_mot_nganh_cho_nhieu_khoi
+
+- rule: intent_hoc_duoc_nganh_nao_cua_truong_nay_voi_so_diem_nay
+  steps:
+  - intent: intent_hoc_duoc_nganh_nao_cua_truong_nay_voi_so_diem_nay
+  - action: action_hoc_duoc_nganh_nao_cua_truong_nay_voi_so_diem_nay
+
+- rule: xet_tuyen_bo_sung
+  steps:
+  - intent: intent_xet_tuyen_bo_sung
+  - action: utter_xet_tuyen_bo_sung
+
+- rule: giay_to_giam_hoc_phi
+  steps:
+  - intent: intent_giay_to_giam_hoc_phi
+  - action: utter_giay_to_giam_hoc_phi
+
+- rule: giay_to_nhap_hoc
+  steps:
+  - intent: intent_giay_to_nhap_hoc
+  - action: utter_giay_to_nhap_hoc
+
+- rule: Say `hello` when the user starts a conversation with intent `greet`
+  steps:
+  - intent: greet
+  - action: action_custom_greet
+  
+- rule: Xóa hết slot
+  steps:
+    - intent: clear_slots
+    - action: action_clear_slots
+
+- rule: intent_phuong_thuc_xet_tuyen
+  steps:
+    - intent: intent_phuong_thuc_xet_tuyen
+    - action: action_phuong_thuc_xet_tuyen
+- rule: giay_to_can_de_du_thi
+  steps:
+    - intent: giay_to_can_de_du_thi
+    - action: utter_giay_to_can_de_du_thi
+- rule: dang ki thi nang luc
+  steps:
+    - intent: intent_dk_thi_nang_luc
+    - action: utter_dk_thi_nang_luc
+- rule: utter_quy_che_tuyen_sinh
+  steps: 
+    - intent: intent_quy_che_tuyen_sinh
+    - action: utter_quy_che_tuyen_sinh
+- rule: thong tin dao tao
+  steps:
+  - intent: intent_thong_tin_dao_tao
+  - action: action_thong_tin_dao_tao
+- rule: Hỏi ngành
+  steps:
+  - intent: hoi_nganh
+  - action: action_confirm_nganh
+
+- rule: Các ngành của trường
+  steps:
+  - intent: intent_cac_nganh_cua_truong
+  - action: action_cac_nganh_cua_truong
+
+# - rule: điểm chuẩn của ngành của trường
+#   steps:
+#   - intent: intent_diem_chuan_nganh_truong
+#   - action: action_diem_chuan_nganh_truong
+
+- rule: ho so xet tuyen hoc ba
+  steps:
+  - intent: intent_ho_so_xthb_dai_hoc_can_j
+  - action: utter_ho_so_xthb
+
+- rule: dieu kien tham gia tuyen sinh
+  steps:
+  - intent: intent_dieu_kien_tham_gia_tuyen_sinh
+  - action: utter_dieu_kien_tham_gia_tuyen_sinh
+
+# - rule: Say 'I am a bot' anytime the user challenges
+#   steps:
+#   - intent: bot_challenge
+#   - action: utter_iamabot
+
+# - rule: thong tin tuyen sinh cua truong
+#   steps:
+#   - intent: tuyen_sinh_truong
+#   - action: action_tuyen_sinh_truong
+
+# - rule: hỏi top trường
+#   steps:
+#   - intent: hoi_top_truong
+#   - action: utter_de_nghi_neu_ro_nganh
+
+- rule: Hỏi thông tin tuyển sinh của 1 ngành trong trường
+  steps:
+  - intent: intent_thong_tin_ts_nganh_cua_truong
+  - action: action_ts_nganh_cua_truong
+
+- rule: giới thiệu sơ về điểm ưu tiên
+  steps:
+  - intent: intent_diem_uu_tien_la_gi
+  - action: utter_gioi_thieu_ve_diem_uu_tien
+
+- rule: tinh diem uu tien
+  steps:
+  - intent: intent_tinh_diem_cong_uu_tien
+  - action: action_tinh_diem_uu_tien
+
+- rule: giới thiệu chi tiết về điểm ưu tiên
+  steps:
+  - intent: intent_chi_tiet_tt_ve_diem_uu_tien
+  - action: utter_chi_tiet_ve_diem_uu_tien
+
+- rule: xét học bạ có đc cộng điểm ưu tiên?
+  steps:
+  - intent: intent_xet_hoc_ba_co_duoc_tinh_diem_uu_tien
+  - action: utter_diem_uu_tien_co_tinh_vao_xet_hoc_ba
+
+- rule: hỏi xem có bao nhiêu ngành và trường mà bot có dữ liệu
+  steps:
+  - intent: intent_cac_nganh_va_truong_ma_bot_co
+  - action: action_nganh_va_truong_ma_bot_co
+
+# - rule: hỏi thông tin tuyển sinh của ngành trong trường
+#   steps:
+#   - intent: intent_nganh_va_truong
+#   - action: action_ts_nganh_cua_truong
+
+- rule: hỏi mã trường
+  steps:
+  - intent: intent_hoi_ma_truong
+  - action: action_ma_truong
+
+- rule: hỏi bot có thể làm đc gì
+  steps:
+  - intent: intent_hoi_bot_lam_duoc_gi
+  - action: utter_bot_co_the_thuc_hien
+
+- rule: hỏi về hồ sơ xét tuyển
+  steps:
+  - intent: intent_ho_so_xet_tuyen_dai_hoc_can_j
+  - action: utter_ho_so_xet_tuyen
+
+- rule: hỏi về các cơ sở của trường
+  steps:
+  - intent: intent_truong_co_may_co_so
+  - action: action_cac_co_so_cua_truong
+
+- rule: hỏi về các học bổng của trường
+  steps:
+  - intent: intent_hoc_bong_cua_truong
+  - action: action_cac_hoc_bong_cua_truong
+
+- rule: hỏi về các trường có học phí phù hợp
+  steps:
+  - intent: intent_hoi_cac_truong_co_hoc_phi_phu_hop
+  - action: action_hoc_phi_phu_hop
+
+- rule: hỏi về các trường có học phí phù hợp
+  steps:
+  - intent: intent_hoi_hoc_phi_cua_truong
+  - action: action_hoc_phi_cua_truong
+
+- rule: giới thiệu về trường
+  steps:
+  - intent: intent_gioi_thieu_ve_truong
+  - action: action_xac_nhan_truong
+
+

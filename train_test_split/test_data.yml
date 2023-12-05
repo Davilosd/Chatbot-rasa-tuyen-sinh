@@ -1,0 +1,179 @@
+version: "3.1"
+nlu:
+- intent: chao
+  examples: |
+    - konichiwa
+- intent: xung_ten
+  examples: |
+    - toi ten la [Anh](ten)
+- intent: order_food
+  examples: |
+    - i want to order a food
+- intent: search_google
+  examples: |
+    - [lol](google)
+- intent: hoi_diem_chuan
+  examples: |
+    - sore dake
+- intent: hoi_khoi_thi_cua_nganh
+  examples: |
+    - cac khoi thi cua [attt](attt)
+- intent: hoi_truong_theo_nganh
+  examples: |
+    - hoc [an toan thong tin](attt) o truong dai hoc nao thi hop ly?
+- intent: hoi_top_truong
+  examples: |
+    - top truong ky thuat
+- intent: xem_ket_qua_thi
+  examples: |
+    - Làm thế nào để xem kết quả xét tuyển đại học?
+- intent: giay_to_can_de_du_thi
+  examples: |
+    - Tôi cần chuẩn bị những giấy tờ gì khi đi dự thi đại học?
+- intent: cac_phuong_thuc_xet_tuyen
+  examples: |
+    - Có những phương thức xét tuyển nào cho đại học?
+- intent: quyen_uu_tien
+  examples: |
+    - Có quyền ưu tiên nào cho học sinh xuất sắc hoặc người có hoàn cảnh khó khăn không?
+- intent: thi_sinh_tu_do
+  examples: |
+    - dang ky du thi dai hoc nhung toi la thi sinh tu do
+- intent: choose_option
+  examples: |
+    - choose option numBER 2
+- intent: bot_challenge
+  examples: |
+    - am I talking to a human?
+- intent: inform_food
+  examples: |
+    - [sushi](food)
+- intent: hoi_co_ban
+  examples: |
+    - Bạn là ai
+- intent: hoi_co_ban_2
+  examples: |
+    - Tuyển sinh đại học
+- intent: thanks
+  examples: |
+    - thankyou
+- intent: order_pizza
+  examples: |
+    - i'd like to have a [pizza](food)
+- intent: hoi_nganh_hot
+  examples: |
+    - nghe nao kiem nhieu tien
+- intent: khoi_thi
+  examples: |
+    - thong tin ve khoi thi [d01](khoi)
+- intent: test_nghe_nghiep
+  examples: |
+    - trac nghiem nghe nghiep
+- intent: inform_diem_trac_nghiem
+  examples: |
+    - [1](diemTN)
+- intent: affirm
+  examples: |
+    - of course
+- intent: hoi_nganh
+  examples: |
+    - Thông tin về [CNTT](cntt)
+- intent: inform_diem
+  examples: |
+    - (20)(diem)
+- intent: tuyen_sinh_truong
+  examples: |
+    - Tuyển sinh trường [ptit2](ptit2)
+- intent: deny
+  examples: |
+    - I don't think so
+- intent: so_thich
+  examples: |
+    - Tôi thích [máy tính](soThich)
+- intent: inform_diem_va_nganh
+  examples: |
+    - [25](diem) điểm thì học ngành kia ở đâu
+- intent: thong_tin_tuyen_sinh_cua_truong
+  examples: |
+    - thong tin tuyen sinh cua truong nay
+- intent: khong_dong_y
+  examples: |
+    - [Không ạ.](khong)
+- intent: tieng_viet
+  examples: |
+    - Chào
+- intent: doi_nguyen_vong
+  examples: |
+    - toi muon doi nguyen vong
+- intent: hoi_thi_nang_luc
+  examples: |
+    - THONG TIN VE KY THI [DHQCHN](khu_vuc_hn)
+- intent: goodbye
+  examples: |
+    - see you around
+    - see you later
+- intent: khong_biet_chon_nganh_nao
+  examples: |
+    - ngành học phù hợp với tôi
+    - ngành mà tôi nên học
+- intent: mood_great
+  examples: |
+    - great
+    - amazing
+    - super stoked
+- intent: mood_unhappy
+  examples: |
+    - I don't feel very well
+    - unhappy
+- intent: dong_y
+  examples: |
+    - [co]{"entity": "co", "value": "Co"}
+    - [chính xác](co)
+    - [tiếp tục](co)
+- intent: inform_nganh
+  examples: |
+    - [cong nghe thong tin](cntt)
+    - [an toan thong tin](attt)
+    - [cong nghe tt](cntt)
+- intent: greet
+  examples: |
+    - hey dude
+    - hello
+    - hello there
+- intent: diem_can_de_do_truong
+  examples: |
+    - Kết quả tuyển sinh năm [2022](nam) của trường [bkhn](bkhn)
+    - Điểm tuyển sinh
+    - trường [ptit2](ptit2) cần bao nhiêu điểm thì đạt
+    - em can bao nhieu diem de do truong [ptit2](ptit2)
+- intent: inform_truong
+  examples: |
+    - [ptit hcm](ptit2)
+    - [ĐẠI HỌC BÁCH KHOA TP HỒ CHÍ MINH](bkhcm)
+    - [HOC VIEN CONG NGHE BUU CHINH VIEN THONG](ptit2)
+    - [ptit hn](ptit1)
+    - [Đại Học Sư Phạm Kỹ Thuật](spkt)
+    - [đại học sư phạm kỹ thuật](spkt)
+    - [ptit2]{"entity": "ptit2", "value": "PTIT2"}
+    - truong [bach khoa hcm](bkhcm)
+- synonym: Co
+  examples: |
+    - co
+- synonym: CNTT
+  examples: |
+    - cntt
+- synonym: Công nghệ thông tin
+  examples: |
+    - công nghệ thông tin
+- synonym: PTIT2
+  examples: |
+    - ptit2
+- synonym: BÁCH KHOA HÀ NỘI
+  examples: |
+    - bách khoa hà nội
+- synonym: PTIT
+  examples: |
+    - ptit
+- synonym: hoc vien cong nghe buu chinh vien tHONg
+  examples: |
+    - hoc vien cong nghe buu chinh vien thong

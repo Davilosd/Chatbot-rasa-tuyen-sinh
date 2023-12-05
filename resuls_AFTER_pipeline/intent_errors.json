@@ -1,0 +1,66 @@
+[
+  {
+    "text": "Chào",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "tieng_viet",
+      "confidence": 0.5441503524780273
+    }
+  },
+  {
+    "text": "1",
+    "intent": "dong_y",
+    "intent_prediction": {
+      "name": "inform_diem_trac_nghiem",
+      "confidence": 0.7391774654388428
+    }
+  },
+  {
+    "text": "0",
+    "intent": "khong_dong_y",
+    "intent_prediction": {
+      "name": "inform_diem_trac_nghiem",
+      "confidence": 0.7391774654388428
+    }
+  },
+  {
+    "text": "xin chao",
+    "intent": "tieng_viet",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.7614060044288635
+    }
+  },
+  {
+    "text": "Công nghệ thông tin",
+    "intent": "inform_nganh",
+    "intent_prediction": {
+      "name": "hoi_nganh",
+      "confidence": 0.6955065131187439
+    }
+  },
+  {
+    "text": "Điện Tử",
+    "intent": "inform_nganh",
+    "intent_prediction": {
+      "name": "so_thich",
+      "confidence": 0.671964704990387
+    }
+  },
+  {
+    "text": "công nghệ thông tin",
+    "intent": "inform_nganh",
+    "intent_prediction": {
+      "name": "hoi_nganh",
+      "confidence": 0.6993284225463867
+    }
+  },
+  {
+    "text": "tuyen sinh bach khoa ha noi",
+    "intent": "tuyen_sinh_truong",
+    "intent_prediction": {
+      "name": "thong_tin_tuyen_sinh_cua_truong",
+      "confidence": 0.6047267913818359
+    }
+  }
+]

@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Rasa Core Visualisation</title>
+    <script src="https://dagrejs.github.io/project/dagre-d3/latest/dagre-d3.min.js"></script>
+    <script src="https://dagrejs.github.io/project/dagre/latest/dagre.min.js"></script>
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <script src="https://dagrejs.github.io/project/graphlib-dot/v0.6.3/graphlib-dot.js"></script>
+</head>
+<body>
+<div id="errormsg" style="color: #b00"></div>
+<svg>
+    <style id="graph-style">
+        .node.invisible > rect {
+            display: none;
+        }
+
+        .node.start > rect {
+            fill: #7f7;
+            rx: 30;
+            ry: 18;
+        }
+
+        .node.end > rect {
+            fill: #f77;
+            rx: 30;
+            ry: 18;
+        }
+
+        .node:not(.active) > rect, .node:not(.active) > .label {
+            opacity: 0.4;
+        }
+
+        .edgePath:not(.active) path {
+            opacity: 0.4;
+        }
+
+        .node.ellipsis > rect {
+            fill: #CCC;
+        }
+
+        .node.intent > rect {
+            fill: #7ff;
+        }
+
+        .node.dashed > rect {
+            stroke-dasharray: 5;
+        }
+
+        text {
+            font-weight: 300;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serf, serif;
+            font-size: 14px;
+            color: #1f1d1d;
+        }
+
+        .node rect {
+            stroke: #444;
+            fill: #fff;
+            stroke-width: 1.5px;
+        }
+
+        .edgePath path {
+            stroke: #333;
+            stroke-width: 1.5px;
+        }
+
+        svg {
+            position: fixed;
+            top: 10px;
+            left: 0;
+            height: 100%;
+            width: 100%
+        }
+    </style>
+    <g></g>
+</svg>
+<script>
+
+  function serveGraph() {
+    let oldInputGraphValue;
+
+    const url = 'visualization.dot';
+    const refreshInterval = 500;
+
+    // trigger a refresh by fetching an updated graph
+    setInterval(function () {
+      fetch(url).then(r => r.text()).then(dot => {
+        document.getElementById('errormsg').innerHTML = '';
+        if (oldInputGraphValue === dot) return;
+
+        oldInputGraphValue = dot;
+        drawGraph(dot);
+      }).catch(err => {
+        document.getElementById('errormsg').innerHTML =
+          'Failed to update plot. (' + err.message + ')';
+      });
+    }, refreshInterval);
+  }
+
+  function drawGraph(graph) {
+    let g = graphlibDot.read(graph);
+    // Set margins, if not present
+    if (!g.graph().hasOwnProperty("marginx") &&
+      !g.graph().hasOwnProperty("marginy")) {
+      g.graph().marginx = 20;
+      g.graph().marginy = 20;
+    }
+    g.graph().transition = function (selection) {
+      return selection.transition().duration(300);
+    };
+    // Render the graph into svg g
+    d3.select("svg g").call(render, g);
+  }
+  // Set up zoom support
+  const svg = d3.select("svg"),
+    inner = d3.select("svg g"),
+    zoom = d3.zoom().on("zoom", function () {
+      inner.attr("transform", d3.event.transform);
+    });
+  svg.call(zoom);
+
+  // Create and configure the renderer
+  const render = dagreD3.render();
+
+  let isClient = false;
+  isClient = true;
+
+  if (isClient) {
+    // Mark all nodes and their edges as active
+    cssRules = document.getElementById('graph-style').sheet.cssRules;
+    cssRules[3].style.opacity = 1;
+    cssRules[4].style.opacity = 1;
+
+    let graph;
+    graph = `digraph  {
+0 [class="start active", fillcolor=green, fontsize=12, label=START, style=filled];
+"-1" [class=end, fillcolor=red, fontsize=12, label=END, style=filled];
+1 [class="", fontsize=12, label=action_order_food];
+2 [class="", fontsize=12, label=action_confirm_order];
+3 [class="", fontsize=12, label=utter_tieng_viet];
+5 [class="", fontsize=12, label=utter_goi_ten];
+6 [class="", fontsize=12, label=utter_hoi_co_ban];
+7 [class="", fontsize=12, label=action_confirm_nganh];
+8 [class="", fontsize=12, label=action_nganh];
+10 [class="", fontsize=12, label=action_truong_phu_hop];
+11 [class="", fontsize=12, label=action_xac_nhan_truong];
+12 [class="", fontsize=12, label=action_tuyen_sinh_truong];
+14 [class="", fontsize=12, label=utter_quyen_uu_tien];
+15 [class="", fontsize=12, label=utter_cac_cach_xet_tuyen];
+16 [class="", fontsize=12, label=action_thi_nang_luc];
+17 [class="", fontsize=12, label=utter_nganh_hot];
+18 [class="", fontsize=12, label=action_diem_va_nganh];
+19 [class="", fontsize=12, label=utter_de_xuat_nganh_nen_hoc];
+20 [class="", fontsize=12, label=action_de_xuat_nganh];
+21 [class="", fontsize=12, label=action_hoi_nganh];
+22 [class="", fontsize=12, label=utter_diem_va_nganh];
+23 [class="", fontsize=12, label=action_diem_can_de_do_truong];
+24 [class="", fontsize=12, label=utter_muon_biet_them_ve_cnnt_ko];
+25 [class="", fontsize=12, label=action_ts_nganh_cua_truong];
+26 [class="", fontsize=12, label=action_thi_sinh_tu_do];
+27 [class="", fontsize=12, label=utter_canh_bao];
+28 [class="", fontsize=12, label=utter_cau1];
+29 [class="", fontsize=12, label=utter_5_buttons];
+30 [class="", fontsize=12, label=action_tinh_diem_test];
+31 [class="", fontsize=12, label=utter_cau2];
+34 [class="", fontsize=12, label=utter_cau3];
+37 [class="", fontsize=12, label=utter_cau4];
+40 [class="", fontsize=12, label=utter_cau5];
+43 [class="", fontsize=12, label=utter_cau6];
+46 [class="", fontsize=12, label=utter_cau7];
+49 [class="", fontsize=12, label=utter_cau8];
+52 [class="", fontsize=12, label=utter_cau9];
+55 [class="", fontsize=12, label=utter_cau10];
+58 [class="", fontsize=12, label=action_ket_qua_test];
+60 [class="", fontsize=12, label=utter_khong_dong_y];
+61 [class="", fontsize=12, label=action_search_google_cse];
+63 [class="", fontsize=12, label=action_xac_nhan_truong];
+66 [class="", fontsize=12, label=utter_hoan_toan_co_the];
+67 [class="", fontsize=12, label=utter_doi_nguyen_vong];
+70 [class="", fontsize=12, label=action_thi_nang_luc];
+71 [class="", fontsize=12, label=utter_nganh_hot];
+72 [class="", fontsize=12, label=action_diem_va_nganh];
+73 [class="", fontsize=12, label=utter_de_xuat_nganh_nen_hoc];
+74 [class="", fontsize=12, label=action_default_fallback];
+75 [class="", fontsize=12, label=action_de_xuat_nganh];
+76 [class="", fontsize=12, label=utter_greet];
+77 [class="", fontsize=12, label=action_other_info];
+78 [class="", fontsize=12, label=utter_canh_bao];
+79 [class="", fontsize=12, label=utter_luat_test];
+146 [class="", fontsize=12, label=action_chi_tiet_doi_nguyen_vong];
+149 [class="", fontsize=12, label=utter_con_cau_hoi_nao_khac_ko];
+154 [class="", fontsize=12, label=action_xac_nhan_truong];
+156 [class="", fontsize=12, label=utter_diem_va_nganh];
+157 [class="", fontsize=12, label=action_ts_nganh_cua_truong];
+158 [class="", fontsize=12, label=action_confirm_nganh];
+159 [class="", fontsize=12, label=action_ts_nganh_cua_truong];
+163 [class="", fontsize=12, label=action_confirm_nganh];
+164 [class="", fontsize=12, label=action_xac_nhan_truong];
+167 [class="", fontsize=12, label=utter_muon_biet_them_ve_cnnt_ko];
+169 [class="", fontsize=12, label=utter_greet];
+170 [class="", fontsize=12, label=utter_happy];
+172 [class="", fontsize=12, label=utter_cheer_up];
+173 [class="", fontsize=12, label=utter_did_that_help];
+178 [class="", fontsize=12, label=utter_goodbye];
+179 [class="", fontsize=12, label=utter_thanks];
+180 [class="", fontsize=12, label="..."];
+184 [class="", fontsize=12, label=utter_greet];
+188 [class="", fontsize=12, label=utter_iamabot];
+189 [class=intent, fillcolor=lightblue, label="i want to order a food", shape=rect, style=filled];
+190 [class=intent, fillcolor=lightblue, label="cam on", shape=rect, style=filled];
+191 [class=intent, fillcolor=lightblue, label="Ai vậy", shape=rect, style=filled];
+192 [class=intent, fillcolor=lightblue, label="Cho hỏi", shape=rect, style=filled];
+193 [class=intent, fillcolor=lightblue, label="truong dai hoc nao tot nhat de hoc cong nghe thong tin", shape=rect, style=filled];
+194 [class=intent, fillcolor=lightblue, label="hojc vieejn coong ngheej buuw chisnh vieexn thoong co so 2", shape=rect, style=filled];
+195 [class=intent, fillcolor=lightblue, label="Có quyền ưu tiên nào cho học sinh xuất sắc hoặc người có hoàn cảnh khó khăn không?", shape=rect, style=filled];
+196 [class=intent, fillcolor=lightblue, label="Có những phương thức xét tuyển nào cho đại học?", shape=rect, style=filled];
+197 [class=intent, fillcolor=lightblue, label="Tôi muốn biết về kỳ thi phỏng vấn hoặc kiểm tra năng lực của trường ptit2, làm thế nào để đăng ký?", shape=rect, style=filled];
+198 [class=intent, fillcolor=lightblue, label="hoc nganh gi de kiem viec", shape=rect, style=filled];
+199 [class=intent, fillcolor=lightblue, label="cong nghe thong tin điểm của tôi là 25", shape=rect, style=filled];
+200 [class=intent, fillcolor=lightblue, label="khong biet toi nen chon nganh nao", shape=rect, style=filled];
+201 [class=intent, fillcolor=lightblue, label="diem chuan", shape=rect, style=filled];
+202 [class=intent, fillcolor=lightblue, label="TOi la thi sinh tu do", shape=rect, style=filled];
+203 [class=intent, fillcolor=lightblue, label="/trac_nghiem_nghe_nghiep", shape=rect, style=filled];
+204 [class=intent, fillcolor=lightblue, label="dark souls", shape=rect, style=filled];
+205 [class=intent, fillcolor=lightblue, label="toi co the doi nguyen vong sau khi da dang ki ko", shape=rect, style=filled];
+206 [class=intent, fillcolor=lightblue, label="choose option", shape=rect, style=filled];
+207 [class=intent, fillcolor=lightblue, label="test nghe nghiep", shape=rect, style=filled];
+208 [class=intent, fillcolor=lightblue, label=hello, shape=rect, style=filled];
+209 [class=intent, fillcolor=lightblue, label=thank, shape=rect, style=filled];
+210 [class=intent, fillcolor=lightblue, label="học viện công nghệ bưu chính viễn thông cơ sở miền bắc tuyển sinh", shape=rect, style=filled];
+211 [class=intent, fillcolor=lightblue, label=steak, shape=rect, style=filled];
+212 [class=intent, fillcolor=lightblue, label=Anh, shape=rect, style=filled];
+213 [class=intent, fillcolor=lightblue, label="HOC VIEN CONG NGHE BUU CHINH VIEN THONG", shape=rect, style=filled];
+214 [class=intent, fillcolor=lightblue, label="Thi nang luc truong Bách Khoa Hà Nội", shape=rect, style=filled];
+215 [class=intent, fillcolor=lightblue, label="cong nghe tt", shape=rect, style=filled];
+216 [class=intent, fillcolor=lightblue, label=dt, shape=rect, style=filled];
+217 [class=intent, fillcolor=lightblue, label="Đúng rồi.", shape=rect, style=filled];
+218 [class=intent, fillcolor=lightblue, label="Học viện công nghệ bưu chính viễn thông 2", shape=rect, style=filled];
+219 [class=intent, fillcolor=lightblue, label="bach khoa ha noi tuyen sinh", shape=rect, style=filled];
+220 [class=intent, fillcolor=lightblue, label="thong tin ve nganh cntt o truong tren", shape=rect, style=filled];
+221 [class=intent, fillcolor=lightblue, label="điện tử", shape=rect, style=filled];
+222 [class=intent, fillcolor=lightblue, label=A1, shape=rect, style=filled];
+223 [class=intent, fillcolor=lightblue, label="cong nghe thong tin", shape=rect, style=filled];
+224 [class=intent, fillcolor=lightblue, label="An Toàn Thông Tin", shape=rect, style=filled];
+225 [class=intent, fillcolor=lightblue, label="có", shape=rect, style=filled];
+226 [class=intent, fillcolor=lightblue, label="Có ạ.", shape=rect, style=filled];
+227 [class=intent, fillcolor=lightblue, label="Từ chối", shape=rect, style=filled];
+228 [class=intent, fillcolor=lightblue, label=2, shape=rect, style=filled];
+229 [class=intent, fillcolor=lightblue, label="tôi đạt 22 tôi nên học công nghệ thông tin ở trường nào", shape=rect, style=filled];
+230 [class=intent, fillcolor=lightblue, label=Co, shape=rect, style=filled];
+231 [class=intent, fillcolor=lightblue, label=sai, shape=rect, style=filled];
+232 [class=intent, fillcolor=lightblue, label="hoc nganh gi de kiem viec", shape=rect, style=filled];
+233 [class=intent, fillcolor=lightblue, label="27 diem thi co the hoc cong nghe thong tin o dau", shape=rect, style=filled];
+234 [class=intent, fillcolor=lightblue, label="cho toi hoi nganh nao nen hoc", shape=rect, style=filled];
+235 [class=intent, fillcolor=lightblue, label="Chơi game", shape=rect, style=filled];
+236 [class=intent, fillcolor=lightblue, label="Chơi game", shape=rect, style=filled];
+237 [class=intent, fillcolor=lightblue, label="diem chuan bach khoa ha noi", shape=rect, style=filled];
+238 [class=intent, fillcolor=lightblue, label=4, shape=rect, style=filled];
+239 [class=intent, fillcolor=lightblue, label="chính xác", shape=rect, style=filled];
+240 [class=intent, fillcolor=lightblue, label="Điện Tử", shape=rect, style=filled];
+241 [class=intent, fillcolor=lightblue, label="hoc vien co so", shape=rect, style=filled];
+242 [class=intent, fillcolor=lightblue, label="Điện Tử", shape=rect, style=filled];
+243 [class=intent, fillcolor=lightblue, label=cntt, shape=rect, style=filled];
+244 [class=intent, fillcolor=lightblue, label="diểm chuẩn trường bkhcm năm 2021", shape=rect, style=filled];
+245 [class=intent, fillcolor=lightblue, label="Học Viện Công Nghệ Bưu Chính Viễn Thông 2", shape=rect, style=filled];
+246 [class=intent, fillcolor=lightblue, label="diểm chuẩn trường bkhcm năm 2021", shape=rect, style=filled];
+247 [class=intent, fillcolor=lightblue, label="Sư phạm", shape=rect, style=filled];
+248 [class=intent, fillcolor=lightblue, label="so good", shape=rect, style=filled];
+249 [class=intent, fillcolor=lightblue, label="so sad", shape=rect, style=filled];
+250 [class=intent, fillcolor=lightblue, label="of course", shape=rect, style=filled];
+251 [class=intent, fillcolor=lightblue, label="no way", shape=rect, style=filled];
+252 [class=intent, fillcolor=lightblue, label=cu, shape=rect, style=filled];
+253 [class=intent, fillcolor=lightblue, label="an toan thong tin là gì?", shape=rect, style=filled];
+254 [class=intent, fillcolor=lightblue, label="are you a human?", shape=rect, style=filled];
+255 [class=intent, fillcolor=lightblue, label="hey there", shape=rect, style=filled];
+0 -> 180  [class="", key=NONE, label=""];
+0 -> 184  [class="", key=NONE, label=""];
+0 -> 189  [class="", key=0];
+0 -> 190  [class="", key=0];
+0 -> 191  [class="", key=0];
+0 -> 192  [class="", key=0];
+0 -> 193  [class="", key=0];
+0 -> 194  [class="", key=0];
+0 -> 195  [class="", key=0];
+0 -> 196  [class="", key=0];
+0 -> 197  [class="", key=0];
+0 -> 198  [class="", key=0];
+0 -> 199  [class="", key=0];
+0 -> 200  [class="", key=0];
+0 -> 201  [class="", key=0];
+0 -> 202  [class="", key=0];
+0 -> 203  [class="", key=0];
+0 -> 204  [class="", key=0];
+0 -> 205  [class="", key=0];
+0 -> 206  [class="", key=0];
+0 -> 207  [class="", key=0];
+0 -> 208  [class="", key=0];
+0 -> 209  [class="", key=0];
+0 -> 210  [class="", key=0];
+1 -> 211  [class="", key=0];
+2 -> "-1"  [class="", key=NONE, label=""];
+3 -> "-1"  [class="", key=NONE, label=""];
+3 -> 212  [class="", key=0];
+3 -> 213  [class="", key=0];
+3 -> 214  [class="", key=0];
+5 -> "-1"  [class="", key=NONE, label=""];
+6 -> 215  [class="", key=0];
+7 -> "-1"  [class="", key=NONE, label=""];
+8 -> 216  [class="", key=0];
+10 -> "-1"  [class="", key=NONE, label=""];
+11 -> 217  [class="", key=0];
+11 -> 218  [class="", key=0];
+12 -> "-1"  [class="", key=NONE, label=""];
+12 -> 219  [class="", key=0];
+14 -> "-1"  [class="", key=NONE, label=""];
+15 -> "-1"  [class="", key=NONE, label=""];
+16 -> "-1"  [class="", key=NONE, label=""];
+17 -> "-1"  [class="", key=NONE, label=""];
+17 -> 220  [class="", key=0];
+18 -> "-1"  [class="", key=NONE, label=""];
+19 -> 221  [class="", key=0];
+20 -> 222  [class="", key=0];
+21 -> 223  [class="", key=0];
+22 -> "-1"  [class="", key=NONE, label=""];
+23 -> 24  [class="", key=NONE, label=""];
+24 -> "-1"  [class="", key=NONE, label=""];
+24 -> 167  [class="", key=NONE, label=""];
+24 -> 224  [class="", key=0];
+24 -> 225  [class="", key=0];
+25 -> "-1"  [class="", key=NONE, label=""];
+26 -> "-1"  [class="", key=NONE, label=""];
+27 -> 226  [class="", key=0];
+27 -> 227  [class="", key=0];
+28 -> 29  [class="", key=NONE, label=""];
+29 -> 228  [class="", key=0];
+30 -> 31  [class="", key=NONE, label=""];
+30 -> 34  [class="", key=NONE, label=""];
+30 -> 37  [class="", key=NONE, label=""];
+30 -> 40  [class="", key=NONE, label=""];
+30 -> 43  [class="", key=NONE, label=""];
+30 -> 46  [class="", key=NONE, label=""];
+30 -> 49  [class="", key=NONE, label=""];
+30 -> 52  [class="", key=NONE, label=""];
+30 -> 55  [class="", key=NONE, label=""];
+30 -> 58  [class="", key=NONE, label=""];
+31 -> 29  [class="", key=NONE, label=""];
+34 -> 29  [class="", key=NONE, label=""];
+37 -> 29  [class="", key=NONE, label=""];
+40 -> 29  [class="", key=NONE, label=""];
+43 -> 29  [class="", key=NONE, label=""];
+46 -> 29  [class="", key=NONE, label=""];
+49 -> 29  [class="", key=NONE, label=""];
+52 -> 29  [class="", key=NONE, label=""];
+55 -> 29  [class="", key=NONE, label=""];
+58 -> "-1"  [class="", key=NONE, label=""];
+60 -> "-1"  [class="", key=NONE, label=""];
+61 -> "-1"  [class="", key=NONE, label=""];
+63 -> "-1"  [class="", key=NONE, label=""];
+66 -> 67  [class="", key=NONE, label=""];
+67 -> 229  [class="", key=0];
+67 -> 230  [class="", key=0];
+67 -> 231  [class="", key=0];
+70 -> 232  [class="", key=0];
+71 -> 233  [class="", key=0];
+72 -> 234  [class="", key=0];
+73 -> 235  [class="", key=0];
+74 -> 236  [class="", key=0];
+75 -> 237  [class="", key=0];
+76 -> 238  [class="", key=0];
+77 -> "-1"  [class="", key=NONE, label=""];
+78 -> 239  [class="", key=0];
+79 -> 28  [class="", key=NONE, label=""];
+146 -> "-1"  [class="", key=NONE, label=""];
+149 -> "-1"  [class="", key=NONE, label=""];
+154 -> 240  [class="", key=0];
+154 -> 241  [class="", key=0];
+156 -> 157  [class="", key=NONE, label=""];
+157 -> 242  [class="", key=0];
+158 -> 243  [class="", key=0];
+159 -> 244  [class="", key=0];
+163 -> 245  [class="", key=0];
+164 -> 246  [class="", key=0];
+167 -> 247  [class="", key=0];
+169 -> 248  [class="", key=0];
+169 -> 249  [class="", key=0];
+170 -> "-1"  [class="", key=NONE, label=""];
+172 -> 173  [class="", key=NONE, label=""];
+173 -> 250  [class="", key=0];
+173 -> 251  [class="", key=0];
+178 -> "-1"  [class="", key=NONE, label=""];
+179 -> "-1"  [class="", key=NONE, label=""];
+180 -> 252  [class="", key=0];
+180 -> 253  [class="", key=0];
+180 -> 254  [class="", key=0];
+180 -> 255  [class="", key=0];
+184 -> "-1"  [class="", key=NONE, label=""];
+188 -> "-1"  [class="", key=NONE, label=""];
+189 -> 1  [class="", key=0];
+190 -> 3  [class="", key=0];
+191 -> 6  [class="", key=0];
+192 -> 8  [class="", key=0];
+193 -> 10  [class="", key=0];
+194 -> 11  [class="", key=0];
+195 -> 14  [class="", key=0];
+196 -> 15  [class="", key=0];
+197 -> 16  [class="", key=0];
+198 -> 17  [class="", key=0];
+199 -> 18  [class="", key=0];
+200 -> 19  [class="", key=0];
+201 -> 23  [class="", key=0];
+202 -> 26  [class="", key=0];
+203 -> 27  [class="", key=0];
+204 -> 61  [class="", key=0];
+205 -> 66  [class="", key=0];
+206 -> 76  [class="", key=0];
+207 -> 78  [class="", key=0];
+208 -> 169  [class="", key=0];
+209 -> 179  [class="", key=0];
+210 -> 12  [class="", key=0];
+211 -> 2  [class="", key=0];
+212 -> 5  [class="", key=0];
+213 -> 63  [class="", key=0];
+214 -> 70  [class="", key=0];
+215 -> 7  [class="", key=0];
+216 -> 7  [class="", key=0];
+217 -> 12  [class="", key=0];
+218 -> 154  [class="", key=0];
+219 -> 12  [class="", key=0];
+220 -> 163  [class="", key=0];
+221 -> 20  [class="", key=0];
+222 -> 21  [class="", key=0];
+223 -> 22  [class="", key=0];
+224 -> 25  [class="", key=0];
+225 -> "-1"  [class="", key=0];
+226 -> 28  [class="", key=0];
+227 -> 60  [class="", key=0];
+228 -> 30  [class="", key=0];
+229 -> 18  [class="", key=0];
+230 -> 146  [class="", key=0];
+231 -> 149  [class="", key=0];
+232 -> 71  [class="", key=0];
+233 -> 72  [class="", key=0];
+234 -> 73  [class="", key=0];
+235 -> 74  [class="", key=0];
+236 -> 75  [class="", key=0];
+237 -> "-1"  [class="", key=0];
+238 -> 77  [class="", key=0];
+239 -> 79  [class="", key=0];
+240 -> 156  [class="", key=0];
+241 -> 154  [class="", key=0];
+242 -> 158  [class="", key=0];
+243 -> 159  [class="", key=0];
+244 -> 23  [class="", key=0];
+245 -> 164  [class="", key=0];
+246 -> 23  [class="", key=0];
+247 -> 25  [class="", key=0];
+248 -> 170  [class="", key=0];
+249 -> 172  [class="", key=0];
+250 -> 170  [class="", key=0];
+251 -> 178  [class="", key=0];
+252 -> 178  [class="", key=0];
+253 -> 7  [class="", key=0];
+254 -> 188  [class="", key=0];
+255 -> 184  [class="", key=0];
+}
+`;
+    drawGraph(graph);
+  } else {
+    serveGraph();
+  }
+
+
+</script>
+</body>
+</html>

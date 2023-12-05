@@ -1,0 +1,98 @@
+[
+  {
+    "text": "1",
+    "entities": [
+      {
+        "start": 0,
+        "end": 1,
+        "value": "1",
+        "entity": "co"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "diemTN",
+        "start": 0,
+        "end": 1,
+        "confidence_entity": 0.8473981618881226,
+        "value": "1",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Có ạ.",
+    "entities": [
+      {
+        "start": 0,
+        "end": 5,
+        "value": "Có ạ.",
+        "entity": "co"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Phải ạ.",
+    "entities": [
+      {
+        "start": 0,
+        "end": 7,
+        "value": "Phải ạ.",
+        "entity": "co"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Đúng rồi.",
+    "entities": [
+      {
+        "start": 0,
+        "end": 9,
+        "value": "Đúng rồi.",
+        "entity": "co"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Không ạ.",
+    "entities": [
+      {
+        "start": 0,
+        "end": 8,
+        "value": "Không ạ.",
+        "entity": "khong"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "0",
+    "entities": [
+      {
+        "start": 0,
+        "end": 1,
+        "value": "0",
+        "entity": "khong"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "diemTN",
+        "start": 0,
+        "end": 1,
+        "confidence_entity": 0.8473981618881226,
+        "value": "0",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  }
+]

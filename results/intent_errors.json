@@ -1,0 +1,10 @@
+[
+  {
+    "text": "0",
+    "intent": "khong_dong_y",
+    "intent_prediction": {
+      "name": "dong_y",
+      "confidence": 0.5916620492935181
+    }
+  }
+]

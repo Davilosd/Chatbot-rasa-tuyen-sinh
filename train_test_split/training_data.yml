@@ -1,0 +1,374 @@
+version: "3.1"
+nlu:
+- intent: chao
+  examples: |
+    - ohayo
+- intent: xung_ten
+  examples: |
+    - [Anh](ten)
+- intent: order_food
+  examples: |
+    - can i get some food, please
+    - let's order some food
+- intent: search_google
+  examples: |
+    - [dark souls](google)
+    - [pokemon](google)
+- intent: hoi_diem_chuan
+  examples: |
+    - koko kaRA
+    - nandesuka
+- intent: hoi_khoi_thi_cua_nganh
+  examples: |
+    - học [cong nghe thong tin](cntt) thì nên thi khối nào?
+    - [cntt](cntt) thi bang nhung khoi nao
+- intent: hoi_truong_theo_nganh
+  examples: |
+    - truong dai hoc nao tot nhat de hoc [cong nghe thong tin](cntt)
+    - truong dai hoc nao tot nhat de hoc [cntt](cntt)
+- intent: hoi_top_truong
+  examples: |
+    - các trường đại học kinh tế nổi tiếng ở vn
+    - các trường đại học kỹ thuật nổi tiếng ở vn
+- intent: xem_ket_qua_thi
+  examples: |
+    - XEM KET QUA THI DAI HOC O DAU
+    - KET QUA THI DAI HOC
+- intent: giay_to_can_de_du_thi
+  examples: |
+    - GIAY TO CAN THIET KHI THI DAI HOC
+    - DI thi can chuan bI giay to nao
+- intent: cac_phuong_thuc_xet_tuyen
+  examples: |
+    - dai hoc co nhung phuong thuc xet tuyen nao
+    - xet tuyen dai hoc kieu j
+- intent: quyen_uu_tien
+  examples: |
+    - thuoc dien uu tien co phuc loi nao ko
+    - quyen uu tien dai hoc
+- intent: thi_sinh_tu_do
+  examples: |
+    - Làm thế nào để đăng ký dự thi đại học nếu tôi là thí sinh tự do (không theo trường lớp)?
+    - TOi la thi sinh tu do
+- intent: choose_option
+  examples: |
+    - 2 IS MY OPTION CHOOSEN
+    - choose option
+- intent: bot_challenge
+  examples: |
+    - are you a human?
+    - am I talking to a bot?
+    - are you a bot?
+- intent: inform_food
+  examples: |
+    - [steak](food)
+    - [burger](food)
+    - [salad](food)
+- intent: hoi_co_ban
+  examples: |
+    - Bạn có phải là người
+    - Ai vậy
+    - Bạn có thể làm được gì
+- intent: hoi_co_ban_2
+  examples: |
+    - Hỏi
+    - Cho hỏi
+    - Tôi muốn biết thông tin tuyển sinh
+- intent: thanks
+  examples: |
+    - thank
+    - appreciate it
+    - thanks
+    - many thanks
+- intent: order_pizza
+  examples: |
+    - I want to order a [pizza](food)
+    - can i get a [pizza](food)
+    - Let's order a [pizza](food)
+    - How about a [pizza](food)
+- intent: hoi_nganh_hot
+  examples: |
+    - nganh nao kiem nhieu tien nhat hien nay
+    - nganh hot
+    - cac nganh hot hien nay
+    - hoc nganh gi de kiem viec
+- intent: khoi_thi
+  examples: |
+    - co cac khoi thi nao
+    - Tôi thi khối [A0](khoi)
+    - [B1](khoi)
+    - [A1](khoi)
+- intent: test_nghe_nghiep
+  examples: |
+    - trắc nghiệm nghề nghiệp
+    - test nghề nghiệp
+    - test nghe nghiep
+    - quiz nghe nghiep
+- intent: inform_diem_trac_nghiem
+  examples: |
+    - [3](diemTN)
+    - [2](diemTN)
+    - [5](diemTN)
+    - [4](diemTN)
+- intent: affirm
+  examples: |
+    - correct
+    - indeed
+    - yes
+    - that sounds good
+    - y
+- intent: hoi_nganh
+  examples: |
+    - Tuyển sinh [cntt](cntt)
+    - [an toan thong tin](attt) là gì?
+    - Tôi muốn biết thêm về ngành [CNTT](cntt)
+    - Ngành [cong nghe thong tin](cntt)
+    - [Công nghệ thông tin](cntt)
+- intent: inform_diem
+  examples: |
+    - (19)(diem) điểm
+    - Toi duoc (18)(diem)
+    - (17)(diem)
+    - (15)(diem) la diem cua toi
+    - (14)(diem) diem
+- intent: tuyen_sinh_truong
+  examples: |
+    - TUYỂN SINH [BÁCH KHOA HÀ NỘI](bkhn)
+    - tuyen sinh [bach khoa ha noi](bkhn)
+    - Thông tin trường [ptit2](ptit2)
+    - tuyen sinh truong [Học Viện Công Nghệ Bưu Chính Viễn Thông 2](ptit2)
+    - tuyển sinh trường [hoc vien cong nghe buu chinh vien tHONg 2](ptit2)
+- intent: deny
+  examples: |
+    - n
+    - not really
+    - never
+    - no way
+    - no
+    - don't like that
+- intent: so_thich
+  examples: |
+    - [hacker](soThich)
+    - [điện tử](soThich)
+    - [may tinh](soThich)
+    - [làm phần mềm](soThich)
+    - [Chơi game](soThich)
+    - [máy tính](soThich)
+- intent: inform_diem_va_nganh
+  examples: |
+    - tôi có [24](diem) điểm, [cong nghe thong tin](cntt)
+    - [cong nghe thong tin](cntt) [27](diem) la diem cua toi
+    - [27](diem) điểm thì học ngành này ở đâu
+    - tôi đạt [22](diem) tôi nên học [công nghệ thông tin](cntt) ở trường nào
+    - [27](diem) diem thi co the hoc [cong nghe thong tin](cntt) o dau
+    - [cong nghe thong tin](cntt) điểm của tôi là [25](diem)
+    - [cong nghe thong tin](cntt), [27](diem) diem là diem cua toi
+- intent: thong_tin_tuyen_sinh_cua_truong
+  examples: |
+    - Tuyển sinh [học viện công nghệ bưu chính viễn thông cơ sở miền nam](ptit2)
+    - tuyển sinh [ptit2]{"entity": "ptit2", "value": "PTIT2"}
+    - [học viện công nghệ bưu chính viễn thông cơ sở miền bắc](ptit1) tuyển sinh
+    - Thông tin tuyển sinh [ptit 2](ptit2)
+    - thong tin tuyen sinh [bách khoa hà nội](bkhn)
+    - [bach khoa ha noi](bkhn) tuyen sinh
+    - tuyen sinh [Đại Học Bách Khoa Hà Nội](bkhn)
+- intent: khong_dong_y
+  examples: |
+    - [sai](khong)
+    - [không](khong)
+    - [không đồng ý](khong)
+    - [ko](khong)
+    - [dừng lại](khong)
+    - [Từ chối](khong)
+    - [hong](khong)
+    - [0](khong)
+- intent: tieng_viet
+  examples: |
+    - Chào buổi sáng
+    - Xin chào
+    - xin loi
+    - alo
+    - cam on
+    - xin chao
+    - xin chào
+    - Chào buổi tối
+- intent: doi_nguyen_vong
+  examples: |
+    - Em đã nộp hồ sơ thì có thể dổi nguyện vọng đăng ký được không?
+    - TOI CO THE DOI NGUYEN VONG DUOC KO
+    - Co the doi nguyen vong dang ky sau khi da nop ho so ko
+    - toi co the doi nguyen vong sau khi da dang ki ko
+    - Tôi có thể thay đổi nguyện vọng đăng ký tuyển sinh sau khi đã nộp hồ sơ không?
+    - Nộp hồ sơ xong có đổi nguyện vọng được không?
+    - Doi nguyen vong duoc khong
+    - TOI CO THE DOI NGUYEN VONG SAU KHI DA NOP KO
+- intent: hoi_thi_nang_luc
+  examples: |
+    - Thi nang luc truong [Bách Khoa Hà Nội](bkhn)
+    - thi nang luc [dai hoc quoc gia hcm](khu_vuc_hcm)
+    - kỳ thi năng lực của trường [Bách Khoa Hà Nội](bkhn) diễn ra khi nào
+    - dang ky thi nang luc cua dai hoc [Bách Khoa Hà Nội](bkhn) nhu the nao?
+    - thi nang luc truong [ptit2]{"entity": "ptit2", "value": "PTIT2"}
+    - Tôi muốn biết về kỳ thi phỏng vấn hoặc kiểm tra năng lực của trường [ptit2](ptit2), làm thế nào để đăng ký?
+    - KY THI NANG LUC CUA [DHQCHCM](khu_vuc_hcm)
+    - thi nang luc [dai hoc quoc gia ha noi](khu_vuc_hn)
+- intent: goodbye
+  examples: |
+    - goodbye
+    - have a nice day
+    - bye bye
+    - bye
+    - cee you later
+    - good by
+    - good night
+    - cu
+- intent: khong_biet_chon_nganh_nao
+  examples: |
+    - tôi muốn biết ngành phù hợp với bản thân
+    - tôi chưa quyết định được ngành học
+    - toi muon biet nganh phu hop voi ban than
+    - cho tôi hỏi ngành nào nên học
+    - nganh ma toi nen hoc
+    - khong biet toi nen chon nganh nao
+    - cho toi hoi nganh nao nen hoc
+    - tôi nên học ngành nào
+    - tôi không biết nên học ngành nào cho phù hợp
+- intent: mood_great
+  examples: |
+    - so good
+    - feeling like a king
+    - I am going to save the world
+    - so so perfect
+    - perfect
+    - I am feeling very good
+    - so perfect
+    - extremely good
+    - wonderful
+    - I am great
+    - I am amazing
+- intent: mood_unhappy
+  examples: |
+    - I'm so sad
+    - sad
+    - I am sad
+    - super sad
+    - so sad
+    - so saad
+    - my day was horrible
+    - not very good
+    - not good
+    - I am disappointed
+    - very sad
+    - extremly sad
+- intent: dong_y
+  examples: |
+    - [Có ạ.](co)
+    - [Phải ạ.](co)
+    - [Có](co)
+    - [1](co)
+    - [Co](co)
+    - [tiep tuc](co)
+    - [Đúng rồi.](co)
+    - [có](co)
+    - [Dạ](co)
+    - [Vâng](co)
+    - [đồng ý](co)
+- intent: inform_nganh
+  examples: |
+    - [An Toàn Thông Tin](attt)
+    - [cntt]{"entity": "cntt", "value": "CNTT"}
+    - [attt](attt)
+    - [Điện Tử](dt)
+    - [su pham](sp)
+    - [Công nghệ thông tin](cntt)
+    - [công nghệ thông tin]{"entity": "cntt", "value": "C\u00f4ng ngh\u1ec7 th\u00f4ng tin"}
+    - thong tin ve nganh [cong nghe thong tin](cntt)
+    - [Sư phạm](sp)
+    - thong tin ve nganh [cntt]{"entity": "cntt", "value": "CNTT"} o truong tren
+    - [CNTT](cntt)
+    - [dt](dt)
+- intent: greet
+  examples: |
+    - Chào
+    - xin chao
+    - hey there
+    - hi
+    - good evening
+    - good afternoon
+    - goodevening
+    - good morning
+    - hey
+    - Buổi sáng
+    - let's go
+    - goodmorning
+    - moin
+- intent: diem_can_de_do_truong
+  examples: |
+    - diểm chuẩn trường [bkhcm](bkhcm) năm [2021](nam)
+    - Kết quả tuyển sinh năm ngoái trường [PTIT2](ptit2)
+    - TÔI CẦN BAO NHIÊU ĐIỂM ĐỂ ĐỖ TRƯỜNG [ptit2](ptit2)
+    - điểm chuẩn của [ptit hcm](ptit2)
+    - Điểm chuẩn trường [PTIT2](ptit2)
+    - Bao nhiêu điểm để em vào trường [ptit2](ptit2)
+    - cần bao nhiêu điểm để dô trường
+    - đạt bao nhiêu điểm thì có thể đỗ trường [ptit2](ptit2)
+    - diem chuan
+    - điểm chuẩn [ptit2](ptit2)
+    - can bao nhieu diem de do truong [ptit2]{"entity": "ptit2", "value": "PTIT2"}
+    - diem chuan truong [ptit2](ptit2)
+    - diem chuan [bach khoa ha noi](bkhn)
+    - diem chuan cua truong nay
+- intent: inform_truong
+  examples: |
+    - [dh cong nghe TT](dhcntt)
+    - [dh khoa hoc tu nhien tphcm](khtn)
+    - [PTIT2](ptit2)
+    - [dai hoc bach khoa tp ho chi minh](bkhcm)
+    - [Học viện công nghệ bưu chính viễn thông 2](ptit2)
+    - [Đại học Bách Khoa TP.Hồ Chí Minh](bkhcm)
+    - [Đại Học Bách Khoa Hà Nội](bkhn)
+    - [bách khoa hà nội]{"entity": "bkhn", "value": "B\u00c1CH KHOA H\u00c0 N\u1ed8I"}
+    - [hoc vien co so](ptit2)
+    - [đại học bách Khoa hà nội](bkhn)
+    - [hocj vieenj coong ngheej buuw chinhs vieenx thoong 2](ptit2)
+    - [dai hoc bach khoa ha noi](bkhn)
+    - [Học Viện Công Nghệ Bưu Chính Viễn Thông 2](ptit2)
+    - [ptit]{"entity": "ptit2", "value": "PTIT"}
+    - [Đại Học Công Nghệ Thông Tin](dhcntt)
+    - [học viện công nghệ bưu chính viễn thông tp.ho chi minh](ptit2)
+    - [Đại Học Bách Khoa TP.Hồ Chí Minh](bkhcm)
+    - [hoc vien cong nghe buu chinh vien thong 2](ptit2)
+    - [Đại học Quốc Gia Hà Nội](qghn)
+    - [PTIT1](ptit1)
+    - [Đại Học Khoa Học Tự Nhiên](khtn)
+    - [Đại Học Quốc Gia Hà Nội](qghn)
+    - [dai hoc cntt](dhcntt)
+    - [dai hoc cong nghe thong tin](dhcntt)
+    - [hoc vien cong nghe buu chinh vien thong ha noi](ptit1)
+    - [dai hoc su pham ky thuat](spkt)
+    - [hojc vieejn coong ngheej buuw chisnh vieexn thoong co so 2](ptit2)
+    - [hoc vien cong nghe buu chinh vien thong co so 2](ptit2)
+    - [khtn tphcm](khtn)
+    - [dai hoc bach khoa ho chi minh](bkhcm)
+    - [bach khoa hcm](bkhcm)
+- synonym: Co
+  examples: |
+    - co
+- synonym: CNTT
+  examples: |
+    - cntt
+- synonym: Công nghệ thông tin
+  examples: |
+    - công nghệ thông tin
+- synonym: PTIT2
+  examples: |
+    - ptit2
+- synonym: BÁCH KHOA HÀ NỘI
+  examples: |
+    - bách khoa hà nội
+- synonym: PTIT
+  examples: |
+    - ptit
+- synonym: hoc vien cong nghe buu chinh vien tHONg
+  examples: |
+    - hoc vien cong nghe buu chinh vien thong
